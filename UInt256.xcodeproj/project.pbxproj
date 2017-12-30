@@ -1,0 +1,550 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5F0351E8393303EBAAE10137 /* UInt256+BinaryInteger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F035264CA1ECAAAE59E0F45 /* UInt256+BinaryInteger.swift */; };
+		5F0351EFF0FD5B82C6C6A7FA /* UInt256+Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F035CB70A0E731B76686F49 /* UInt256+Comparable.swift */; };
+		5F0352B07E7722580C81CB5C /* UInt256+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F035F06AAC160550E9AED24 /* UInt256+Equatable.swift */; };
+		5F0355626CC18A03414FA3F2 /* UInt256+UnsignedInteger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0358762FD13479181171FD /* UInt256+UnsignedInteger.swift */; };
+		5F03599EDD63D07F823CD1AD /* UInt256+Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F035F668D48F1590FC8FAF2 /* UInt256+Hashable.swift */; };
+		5F035B9F7D71C259F3D58232 /* UInt256+ExpressibleByIntegerLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F035FECB76F1CC8BE630CD3 /* UInt256+ExpressibleByIntegerLiteral.swift */; };
+		5F035BC8DA22980936C06B40 /* UInt256+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F035504EE2DFCE6F8576E68 /* UInt256+CustomStringConvertible.swift */; };
+		5F035CB3E35DBBC4A186811F /* UInt256.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F035F24AA367283E3EE5D6F /* UInt256.swift */; };
+		5F035EE1209FD5C847C3FF24 /* UInt256+Numeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F035E98CEFCC0896AF02286 /* UInt256+Numeric.swift */; };
+		63ADD5A61FF7F9430081AF93 /* UInt256.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F035F24AA367283E3EE5D6F /* UInt256.swift */; };
+		63ADD5A71FF7F9490081AF93 /* UInt256+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F035F06AAC160550E9AED24 /* UInt256+Equatable.swift */; };
+		63ADD5A81FF7F9490081AF93 /* UInt256+ExpressibleByIntegerLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F035FECB76F1CC8BE630CD3 /* UInt256+ExpressibleByIntegerLiteral.swift */; };
+		63ADD5A91FF7F9490081AF93 /* UInt256+Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F035CB70A0E731B76686F49 /* UInt256+Comparable.swift */; };
+		63ADD5AA1FF7F9490081AF93 /* UInt256+UnsignedInteger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0358762FD13479181171FD /* UInt256+UnsignedInteger.swift */; };
+		63ADD5AB1FF7F9490081AF93 /* UInt256+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F035504EE2DFCE6F8576E68 /* UInt256+CustomStringConvertible.swift */; };
+		63ADD5AC1FF7F9490081AF93 /* UInt256+Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F035F668D48F1590FC8FAF2 /* UInt256+Hashable.swift */; };
+		63ADD5AD1FF7F9490081AF93 /* UInt256+Numeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F035E98CEFCC0896AF02286 /* UInt256+Numeric.swift */; };
+		63ADD5AE1FF7F9490081AF93 /* UInt256+BinaryInteger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F035264CA1ECAAAE59E0F45 /* UInt256+BinaryInteger.swift */; };
+		63ADD5AF1FF7FAB40081AF93 /* Arithmetics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0351EAC2C66F0799530F3A /* Arithmetics.swift */; };
+		63ADD5B01FF7FAB70081AF93 /* UInt256Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0353CA2318ABFE778872BF /* UInt256Tests.swift */; };
+		63FE07E61FF80D4D005DAAEE /* BinaryOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FE07E51FF80D4D005DAAEE /* BinaryOperations.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		63ADD5A41FF7F89C0081AF93 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5F035D9EC269F88501C37787 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5F03543980EC2DBAE185B121;
+			remoteInfo = UInt256;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5F035DF79680A93B2C48C107 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		5F0351EAC2C66F0799530F3A /* Arithmetics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Arithmetics.swift; sourceTree = "<group>"; };
+		5F035264CA1ECAAAE59E0F45 /* UInt256+BinaryInteger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UInt256+BinaryInteger.swift"; sourceTree = "<group>"; };
+		5F0353CA2318ABFE778872BF /* UInt256Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UInt256Tests.swift; sourceTree = "<group>"; };
+		5F035504EE2DFCE6F8576E68 /* UInt256+CustomStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UInt256+CustomStringConvertible.swift"; sourceTree = "<group>"; };
+		5F03566106873124523C356B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F0358762FD13479181171FD /* UInt256+UnsignedInteger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UInt256+UnsignedInteger.swift"; sourceTree = "<group>"; };
+		5F035A621E9BBB1707B88C34 /* libUInt256.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUInt256.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F035CB70A0E731B76686F49 /* UInt256+Comparable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UInt256+Comparable.swift"; sourceTree = "<group>"; };
+		5F035E98CEFCC0896AF02286 /* UInt256+Numeric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UInt256+Numeric.swift"; sourceTree = "<group>"; };
+		5F035F06AAC160550E9AED24 /* UInt256+Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UInt256+Equatable.swift"; sourceTree = "<group>"; };
+		5F035F24AA367283E3EE5D6F /* UInt256.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UInt256.swift; sourceTree = "<group>"; };
+		5F035F668D48F1590FC8FAF2 /* UInt256+Hashable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UInt256+Hashable.swift"; sourceTree = "<group>"; };
+		5F035FC15F3BCC0C1819E3C8 /* UInt256Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UInt256Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F035FECB76F1CC8BE630CD3 /* UInt256+ExpressibleByIntegerLiteral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UInt256+ExpressibleByIntegerLiteral.swift"; sourceTree = "<group>"; };
+		63FE07E51FF80D4D005DAAEE /* BinaryOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryOperations.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5F035816E4A0C880D47A4374 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F035ADBA6412D5E9D98B2FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5F035754AD6987595E1FC9E6 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				5F035F24AA367283E3EE5D6F /* UInt256.swift */,
+				5F035F06AAC160550E9AED24 /* UInt256+Equatable.swift */,
+				5F035FECB76F1CC8BE630CD3 /* UInt256+ExpressibleByIntegerLiteral.swift */,
+				5F035CB70A0E731B76686F49 /* UInt256+Comparable.swift */,
+				5F0358762FD13479181171FD /* UInt256+UnsignedInteger.swift */,
+				5F035504EE2DFCE6F8576E68 /* UInt256+CustomStringConvertible.swift */,
+				5F035F668D48F1590FC8FAF2 /* UInt256+Hashable.swift */,
+				5F035E98CEFCC0896AF02286 /* UInt256+Numeric.swift */,
+				5F035264CA1ECAAAE59E0F45 /* UInt256+BinaryInteger.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		5F0358DF56F06BD1261F0F86 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5F035A621E9BBB1707B88C34 /* libUInt256.a */,
+				5F035FC15F3BCC0C1819E3C8 /* UInt256Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5F0358EFC1F53F92384284FC = {
+			isa = PBXGroup;
+			children = (
+				5F0358DF56F06BD1261F0F86 /* Products */,
+				5F035754AD6987595E1FC9E6 /* Sources */,
+				5F035EAA6B03AFDA84666872 /* Tests */,
+				63ADD5A21FF7F88C0081AF93 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5F035EAA6B03AFDA84666872 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				5F03566106873124523C356B /* Info.plist */,
+				5F0353CA2318ABFE778872BF /* UInt256Tests.swift */,
+				5F0351EAC2C66F0799530F3A /* Arithmetics.swift */,
+				63FE07E51FF80D4D005DAAEE /* BinaryOperations.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		63ADD5A21FF7F88C0081AF93 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5F03543980EC2DBAE185B121 /* UInt256 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5F035F201A6B7B12DF1465B4 /* Build configuration list for PBXNativeTarget "UInt256" */;
+			buildPhases = (
+				5F035FA3FA2BBF1F5111E468 /* Sources */,
+				5F035ADBA6412D5E9D98B2FB /* Frameworks */,
+				5F035DF79680A93B2C48C107 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UInt256;
+			productName = UInt256;
+			productReference = 5F035A621E9BBB1707B88C34 /* libUInt256.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		5F035E642A3DD72A9413CD89 /* UInt256Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5F0351AB2434A30CC10CA5DB /* Build configuration list for PBXNativeTarget "UInt256Tests" */;
+			buildPhases = (
+				5F035000A9F46D15F20E0C39 /* Sources */,
+				5F035816E4A0C880D47A4374 /* Frameworks */,
+				5F03573C6570BA15B13B9906 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				63ADD5A51FF7F89C0081AF93 /* PBXTargetDependency */,
+			);
+			name = UInt256Tests;
+			productName = UInt256Tests;
+			productReference = 5F035FC15F3BCC0C1819E3C8 /* UInt256Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5F035D9EC269F88501C37787 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = "";
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "";
+			};
+			buildConfigurationList = 5F03517C35ABAF72AE5476CD /* Build configuration list for PBXProject "UInt256" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5F0358EFC1F53F92384284FC;
+			productRefGroup = 5F0358DF56F06BD1261F0F86 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5F03543980EC2DBAE185B121 /* UInt256 */,
+				5F035E642A3DD72A9413CD89 /* UInt256Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5F03573C6570BA15B13B9906 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5F035000A9F46D15F20E0C39 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63ADD5A81FF7F9490081AF93 /* UInt256+ExpressibleByIntegerLiteral.swift in Sources */,
+				63ADD5B01FF7FAB70081AF93 /* UInt256Tests.swift in Sources */,
+				63ADD5AC1FF7F9490081AF93 /* UInt256+Hashable.swift in Sources */,
+				63ADD5AB1FF7F9490081AF93 /* UInt256+CustomStringConvertible.swift in Sources */,
+				63ADD5AD1FF7F9490081AF93 /* UInt256+Numeric.swift in Sources */,
+				63ADD5AA1FF7F9490081AF93 /* UInt256+UnsignedInteger.swift in Sources */,
+				63FE07E61FF80D4D005DAAEE /* BinaryOperations.swift in Sources */,
+				63ADD5A71FF7F9490081AF93 /* UInt256+Equatable.swift in Sources */,
+				63ADD5AE1FF7F9490081AF93 /* UInt256+BinaryInteger.swift in Sources */,
+				63ADD5AF1FF7FAB40081AF93 /* Arithmetics.swift in Sources */,
+				63ADD5A61FF7F9430081AF93 /* UInt256.swift in Sources */,
+				63ADD5A91FF7F9490081AF93 /* UInt256+Comparable.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F035FA3FA2BBF1F5111E468 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F035CB3E35DBBC4A186811F /* UInt256.swift in Sources */,
+				5F0352B07E7722580C81CB5C /* UInt256+Equatable.swift in Sources */,
+				5F035B9F7D71C259F3D58232 /* UInt256+ExpressibleByIntegerLiteral.swift in Sources */,
+				5F0351EFF0FD5B82C6C6A7FA /* UInt256+Comparable.swift in Sources */,
+				5F0355626CC18A03414FA3F2 /* UInt256+UnsignedInteger.swift in Sources */,
+				5F035BC8DA22980936C06B40 /* UInt256+CustomStringConvertible.swift in Sources */,
+				5F03599EDD63D07F823CD1AD /* UInt256+Hashable.swift in Sources */,
+				5F035EE1209FD5C847C3FF24 /* UInt256+Numeric.swift in Sources */,
+				5F0351E8393303EBAAE10137 /* UInt256+BinaryInteger.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		63ADD5A51FF7F89C0081AF93 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5F03543980EC2DBAE185B121 /* UInt256 */;
+			targetProxy = 63ADD5A41FF7F89C0081AF93 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		5F0352359C1A44149E7A9397 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5F035435A62E0AE12B79DA5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mryu87.UInt256;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5F03543724AA1FC71D5FC9C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5F0357331C0B5771638483CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mryu87.UInt256;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5F03580C9296DCD6C6826FA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mryu87.UInt256Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5F03596D281993CF8CC442D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mryu87.UInt256Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5F03517C35ABAF72AE5476CD /* Build configuration list for PBXProject "UInt256" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F0352359C1A44149E7A9397 /* Debug */,
+				5F03543724AA1FC71D5FC9C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5F0351AB2434A30CC10CA5DB /* Build configuration list for PBXNativeTarget "UInt256Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F03580C9296DCD6C6826FA6 /* Debug */,
+				5F03596D281993CF8CC442D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5F035F201A6B7B12DF1465B4 /* Build configuration list for PBXNativeTarget "UInt256" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F0357331C0B5771638483CA /* Debug */,
+				5F035435A62E0AE12B79DA5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5F035D9EC269F88501C37787 /* Project object */;
+}
