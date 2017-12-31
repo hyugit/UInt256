@@ -19,5 +19,6 @@ The main struct UInt256 conforms to the following protocols:
  - [ ] add an example, preferably through a playground
  - [ ] more tests, test coverage, corner cases, lint, code review
  - [ ] automate build and test runs
+ - [ ] benchmark
  - [ ] karatsuba multiplication
  - [ ] fast modulo, division, and other algos
