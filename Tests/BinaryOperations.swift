@@ -11,6 +11,9 @@ import XCTest
 class UInt256BinaryOperationsTests: XCTestCase {
 
     func testBinaryProperties() {
+        XCTAssertEqual(UInt256.isSigned, false)
+        
+        
         let a: UInt256 = 0
         XCTAssertEqual(a.bitWidth, 256)
         XCTAssertEqual(a.trailingZeroBitCount, 256)
@@ -21,6 +24,7 @@ class UInt256BinaryOperationsTests: XCTestCase {
             0x0000000000000000,
             0x0000000000000000
         ])
+        
         XCTAssertEqual(b.bitWidth, 256)
         XCTAssertEqual(b.trailingZeroBitCount, 255)
 
