@@ -134,7 +134,7 @@ extension UInt256: Numeric {
 
         var result: UInt256 = 0
         var remainder: UInt256 = lhs
-        while remainder > rhs {
+        while remainder >= rhs {
             var tmp: UInt256 = 1
             var chunk: UInt256 = rhs
             while remainder - chunk > chunk {
@@ -145,7 +145,6 @@ extension UInt256: Numeric {
             result += tmp
         }
 
-        result += 1
         return (result, remainder)
     }
 
