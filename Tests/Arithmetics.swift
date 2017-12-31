@@ -115,6 +115,12 @@ class UInt256ArithmeticTests: XCTestCase {
         XCTAssertEqual((g % h), 101614)
     }
 
+    func generateRandomUInt64() -> UInt64 {
+        let x0 = UInt64(arc4random())
+        let x1 = UInt64(arc4random())
+        return x0 << 32 | x1
+    }
+
     func testDivision() {
         let a = UInt256.max
         XCTAssertEqual(a / UInt256(UInt64.max), UInt256([1, 1, 1, 1]))
@@ -124,5 +130,20 @@ class UInt256ArithmeticTests: XCTestCase {
             0x0000000100000001,
             0x0000000100000001,
         ]))
+        let b = UInt256([
+            generateRandomUInt64(),
+            generateRandomUInt64(),
+            generateRandomUInt64(),
+            generateRandomUInt64()
+        ])
+        let c = UInt256([
+            0,
+            0,
+            generateRandomUInt64(),
+            generateRandomUInt64()
+        ])
+        let result = b / c
+        let remainder = b % c
+        XCTAssertEqual(result * c + remainder, b)
     }
 }
