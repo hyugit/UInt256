@@ -114,4 +114,15 @@ class UInt256ArithmeticTests: XCTestCase {
         let h = UInt256(103889)
         XCTAssertEqual((g % h), 101614)
     }
+
+    func testDivision() {
+        let a = UInt256.max
+        XCTAssertEqual(a / UInt256(UInt64.max), UInt256([1, 1, 1, 1]))
+        XCTAssertEqual(a / UInt256(UInt32.max), UInt256([
+            0x0000000100000001,
+            0x0000000100000001,
+            0x0000000100000001,
+            0x0000000100000001,
+        ]))
+    }
 }
