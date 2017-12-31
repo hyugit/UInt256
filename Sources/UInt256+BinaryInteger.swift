@@ -22,15 +22,19 @@ extension UInt256: BinaryInteger {
         ]
     }
 
-    public var bitWidth: Int {
+    public static var bitWidth: Int {
         return 256
     }
     
     public var trailingZeroBitCount: Int {
         var result: Int = 0
         for value in parts.reversed() {
-            result += value.trailingZeroBitCount
-            if result % 64 != 0 {
+            let count = value.trailingZeroBitCount
+            if count == 0 {
+                return result
+            }
+            result += count
+            if count < 64 {
                 return result
             }
         }

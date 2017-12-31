@@ -38,6 +38,9 @@
 		63650A421FF85FE90065405F /* UInt256.h in Headers */ = {isa = PBXBuildFile; fileRef = 636509E41FF859640065405F /* UInt256.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		63ADD5AF1FF7FAB40081AF93 /* Arithmetics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0351EAC2C66F0799530F3A /* Arithmetics.swift */; };
 		63ADD5B01FF7FAB70081AF93 /* UInt256Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0353CA2318ABFE778872BF /* UInt256Tests.swift */; };
+		63FCC6781FF956ED0073BF65 /* UInt256+FixedWidthInteger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FCC6771FF956ED0073BF65 /* UInt256+FixedWidthInteger.swift */; };
+		63FCC6791FF956ED0073BF65 /* UInt256+FixedWidthInteger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FCC6771FF956ED0073BF65 /* UInt256+FixedWidthInteger.swift */; };
+		63FCC67A1FF956ED0073BF65 /* UInt256+FixedWidthInteger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FCC6771FF956ED0073BF65 /* UInt256+FixedWidthInteger.swift */; };
 		63FE07E61FF80D4D005DAAEE /* BinaryOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FE07E51FF80D4D005DAAEE /* BinaryOperations.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +61,7 @@
 		636509E41FF859640065405F /* UInt256.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UInt256.h; sourceTree = "<group>"; };
 		636509E51FF859640065405F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63650A311FF85F960065405F /* UInt256_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UInt256_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63FCC6771FF956ED0073BF65 /* UInt256+FixedWidthInteger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt256+FixedWidthInteger.swift"; sourceTree = "<group>"; };
 		63FE07E51FF80D4D005DAAEE /* BinaryOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryOperations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,6 +104,7 @@
 				5F035F668D48F1590FC8FAF2 /* UInt256+Hashable.swift */,
 				5F035E98CEFCC0896AF02286 /* UInt256+Numeric.swift */,
 				5F035264CA1ECAAAE59E0F45 /* UInt256+BinaryInteger.swift */,
+				63FCC6771FF956ED0073BF65 /* UInt256+FixedWidthInteger.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -293,6 +298,7 @@
 				63650A101FF85AFD0065405F /* UInt256+CustomStringConvertible.swift in Sources */,
 				63650A0F1FF85AFD0065405F /* UInt256+UnsignedInteger.swift in Sources */,
 				63650A121FF85AFD0065405F /* UInt256+Numeric.swift in Sources */,
+				63FCC6781FF956ED0073BF65 /* UInt256+FixedWidthInteger.swift in Sources */,
 				63650A0B1FF85AFD0065405F /* UInt256.swift in Sources */,
 				63650A0E1FF85AFD0065405F /* UInt256+Comparable.swift in Sources */,
 				63FE07E61FF80D4D005DAAEE /* BinaryOperations.swift in Sources */,
@@ -306,6 +312,7 @@
 			files = (
 				636509FA1FF85AF80065405F /* UInt256+Equatable.swift in Sources */,
 				636509FC1FF85AF80065405F /* UInt256+Comparable.swift in Sources */,
+				63FCC6791FF956ED0073BF65 /* UInt256+FixedWidthInteger.swift in Sources */,
 				636509F91FF85AF80065405F /* UInt256.swift in Sources */,
 				63650A001FF85AF80065405F /* UInt256+Numeric.swift in Sources */,
 				636509FF1FF85AF80065405F /* UInt256+Hashable.swift in Sources */,
@@ -322,6 +329,7 @@
 			files = (
 				63650A3A1FF85FE50065405F /* UInt256+Equatable.swift in Sources */,
 				63650A3C1FF85FE50065405F /* UInt256+Comparable.swift in Sources */,
+				63FCC67A1FF956ED0073BF65 /* UInt256+FixedWidthInteger.swift in Sources */,
 				63650A391FF85FE50065405F /* UInt256.swift in Sources */,
 				63650A401FF85FE50065405F /* UInt256+Numeric.swift in Sources */,
 				63650A3F1FF85FE50065405F /* UInt256+Hashable.swift in Sources */,
