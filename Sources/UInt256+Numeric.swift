@@ -116,35 +116,42 @@ extension UInt256: Numeric {
     }
     
     public static func /(_ lhs: UInt256, _ rhs: UInt256) -> UInt256 {
-        return UInt256(1)
+        let (result, _) = divisionWithModulo(lhs, rhs)
+        return result
     }
     
     public static func /=(_ lhs: inout UInt256, _ rhs: UInt256) {
         lhs = lhs / rhs
     }
     
-    public static func modulo(_ lhs: UInt256, _ rhs: UInt256) -> UInt256 {
+    public static func divisionWithModulo(_ lhs: UInt256, _ rhs: UInt256) -> (UInt256, UInt256) {
         if lhs == 0 || rhs == 0 {
-            return 0
+            return (0, 0)
         }
         if rhs == 1 {
-            return 0
+            return (0, 0)
         }
 
-        var result: UInt256 = lhs
-        while result > rhs {
-            var tmp: UInt256 = rhs
-            while result - tmp > tmp {
+        var result: UInt256 = 0
+        var remainder: UInt256 = lhs
+        while remainder > rhs {
+            var tmp: UInt256 = 1
+            var chunk: UInt256 = rhs
+            while remainder - chunk > chunk {
+                chunk = chunk << 1
                 tmp = tmp << 1
             }
-            result -= tmp
+            remainder -= chunk
+            result += tmp
         }
 
-        return result
+        result += 1
+        return (result, remainder)
     }
 
     public static func %(_ lhs: UInt256, _ rhs: UInt256) -> UInt256 {
-        return modulo(lhs, rhs)
+        let (_, result) = divisionWithModulo(lhs, rhs)
+        return result
     }
     
     public static func %=(lhs: inout UInt256, rhs: UInt256) {
