@@ -84,14 +84,33 @@ extension UInt256: Numeric {
         lhs = lhs - rhs
     }
 
-    static func multiply(_ lhs: UInt256, _ rhs: UInt256) -> (UInt256, Bool) {
-        return (UInt256(0), true)
+    static func multiply(_ lhs: UInt256, byUInt64 rhs: UInt64) -> UInt256 {
+        if lhs == 0 || rhs == 0 {
+            return 0
+        }
+
+        var result: UInt256 = 0
+        for i in 0..<rhs.bitWidth {
+            if (rhs >> i) & 0b1 == 1 {
+                result += lhs << i
+            }
+        }
+
+        return result
+    }
+    
+    static func multiply(_ lhs: UInt256, _ rhs: UInt256) -> UInt256 {
+        var result: UInt256 = 0
+        for i in 0..<4 {
+            result += multiply(lhs << (64 * (3 - i)), byUInt64: rhs[i])
+        }
+        return result
     }
     
     public static func *(_ lhs: UInt256, _ rhs: UInt256) -> UInt256 {
-        return UInt256(0)
+        return multiply(lhs, rhs)
     }
-    
+
     public static func *=(_ lhs: inout UInt256, _ rhs: UInt256) {
         lhs = lhs * rhs
     }
@@ -104,8 +123,28 @@ extension UInt256: Numeric {
         lhs = lhs / rhs
     }
     
-    public static func %(lhs: UInt256, rhs: UInt256) -> UInt256 {
-        return UInt256(0)
+    public static func modulo(_ lhs: UInt256, _ rhs: UInt256) -> UInt256 {
+        if lhs == 0 || rhs == 0 {
+            return 0
+        }
+        if rhs == 1 {
+            return 0
+        }
+
+        var result: UInt256 = lhs
+        while result > rhs {
+            var tmp: UInt256 = rhs
+            while result - tmp > tmp {
+                tmp = tmp << 1
+            }
+            result -= tmp
+        }
+
+        return result
+    }
+
+    public static func %(_ lhs: UInt256, _ rhs: UInt256) -> UInt256 {
+        return modulo(lhs, rhs)
     }
     
     public static func %=(lhs: inout UInt256, rhs: UInt256) {

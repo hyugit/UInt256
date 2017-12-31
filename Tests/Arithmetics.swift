@@ -43,7 +43,6 @@ class UInt256ArithmeticTests: XCTestCase {
         """)
     }
 
-
     func testSubtraction() {
         let a: UInt256 = UInt256.max
         let b: UInt256 = 1
@@ -77,5 +76,42 @@ class UInt256ArithmeticTests: XCTestCase {
         ffffffffffffffff\
         fffffffffffffffb
         """)
+    }
+
+    func testMultiplication() {
+        let a = UInt256([1, 1, 1, 1])
+        let b = UInt256([0, 0, 0, 5])
+        XCTAssertEqual(a * b, UInt256([5, 5, 5, 5]))
+        let c = UInt256([1, 1, 1, 1])
+        let d = UInt256([0, 0, 0, 0xffffffffffffffff])
+        XCTAssertEqual(c * d, UInt256.max)
+        let e = UInt256([
+            0x5555555555555555,
+            0x5555555555555555,
+            0x5555555555555555,
+            0x5555555555555555,
+        ])
+        let f = UInt256([0, 0, 0, 2])
+        XCTAssertEqual(e * f, UInt256([
+            0xaaaaaaaaaaaaaaaa,
+            0xaaaaaaaaaaaaaaaa,
+            0xaaaaaaaaaaaaaaaa,
+            0xaaaaaaaaaaaaaaaa,
+        ]))
+    }
+
+    func testModulo() {
+        let a = UInt256([1, 0, 0, 0])
+        let b = UInt256(17)
+        XCTAssertEqual((a % b), 1)
+        let c = UInt256([0xffff, 0, 0, 0])
+        let d = UInt256(23)
+        XCTAssertEqual((c % d), 3)
+        let e = UInt256([0xffffffff, 0, 0, 0])
+        let f = UInt256(29)
+        XCTAssertEqual((e % f), 10)
+        let g = UInt256.max
+        let h = UInt256(103889)
+        XCTAssertEqual((g % h), 101614)
     }
 }
