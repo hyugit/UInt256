@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5F03543980EC2DBAE185B121"
-               BuildableName = "libUInt256.a"
-               BlueprintName = "UInt256"
+               BlueprintIdentifier = "63650A301FF85F960065405F"
+               BuildableName = "UInt256_macOS.framework"
+               BlueprintName = "UInt256 macOS"
                ReferencedContainer = "container:UInt256.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,9 +47,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5F03543980EC2DBAE185B121"
-            BuildableName = "libUInt256.a"
-            BlueprintName = "UInt256"
+            BlueprintIdentifier = "63650A301FF85F960065405F"
+            BuildableName = "UInt256_macOS.framework"
+            BlueprintName = "UInt256 macOS"
             ReferencedContainer = "container:UInt256.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -62,6 +62,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "63650A301FF85F960065405F"
+            BuildableName = "UInt256_macOS.framework"
+            BlueprintName = "UInt256 macOS"
+            ReferencedContainer = "container:UInt256.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
