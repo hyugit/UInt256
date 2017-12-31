@@ -25,8 +25,7 @@ extension UInt256: Numeric {
     static func add(_ lhs: UInt256, _ rhs: UInt256) -> (UInt256, Bool) {
         var values = [UInt64]()
         var carry: UInt64 = 0
-        let range = 0..<4
-        for i in range.reversed() {
+        for i in (0..<4).reversed() {
             values.insert(lhs[i] &+ rhs[i] &+ carry, at: 0)
             carry = getAdderCarry(
                 value: values[0],
@@ -59,8 +58,7 @@ extension UInt256: Numeric {
     static func subtract(_ lhs: UInt256, _ rhs: UInt256) -> (UInt256, Bool) {
         var values = [UInt64]()
         var carry: UInt64 = 0
-        let range = 0..<4
-        for i in range.reversed() {
+        for i in (0..<4).reversed() {
             values.insert(lhs[i] &- rhs[i] &- carry, at: 0)
             carry = getAdderCarry(value: lhs[i], lhs: values[0], rhs: rhs[i], carry: carry)
         }
@@ -90,7 +88,7 @@ extension UInt256: Numeric {
         }
 
         var result: UInt256 = 0
-        for i in 0..<rhs.bitWidth {
+        for i in 0..<64 {
             if (rhs >> i) & 0b1 == 1 {
                 result += lhs << i
             }
@@ -98,7 +96,7 @@ extension UInt256: Numeric {
 
         return result
     }
-    
+
     static func multiply(_ lhs: UInt256, _ rhs: UInt256) -> UInt256 {
         var result: UInt256 = 0
         for i in 0..<4 {
@@ -106,7 +104,7 @@ extension UInt256: Numeric {
         }
         return result
     }
-    
+
     public static func *(_ lhs: UInt256, _ rhs: UInt256) -> UInt256 {
         return multiply(lhs, rhs)
     }
@@ -114,16 +112,16 @@ extension UInt256: Numeric {
     public static func *=(_ lhs: inout UInt256, _ rhs: UInt256) {
         lhs = lhs * rhs
     }
-    
+
     public static func /(_ lhs: UInt256, _ rhs: UInt256) -> UInt256 {
         let (result, _) = divisionWithModulo(lhs, rhs)
         return result
     }
-    
+
     public static func /=(_ lhs: inout UInt256, _ rhs: UInt256) {
         lhs = lhs / rhs
     }
-    
+
     public static func divisionWithModulo(_ lhs: UInt256, _ rhs: UInt256) -> (UInt256, UInt256) {
         if lhs == 0 || rhs == 0 {
             return (0, 0)

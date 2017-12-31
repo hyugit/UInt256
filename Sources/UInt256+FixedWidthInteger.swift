@@ -48,32 +48,40 @@ extension UInt256: FixedWidthInteger {
             parts[0].byteSwapped,
         ])
     }
-    
+
     public func addingReportingOverflow(_ rhs: UInt256) -> (partialValue: UInt256, overflow: Bool) {
-        return (0, true)
+        return UInt256.add(self, rhs)
     }
-    
+
     public func subtractingReportingOverflow(_ rhs: UInt256) -> (partialValue: UInt256, overflow: Bool) {
-        return (0, true)
+        return UInt256.subtract(self, rhs)
     }
-    
+
     public func multipliedReportingOverflow(by rhs: UInt256) -> (partialValue: UInt256, overflow: Bool) {
-        return (0, true)
+        return (0, true) // TODO: implement this
     }
-    
+
     public func dividedReportingOverflow(by rhs: UInt256) -> (partialValue: UInt256, overflow: Bool) {
-        return (0, true)
+        if rhs == 0 {
+            return (UInt256(self), true)
+        }
+        let (result, _) = UInt256.divisionWithModulo(self, rhs)
+        return (result, false)
     }
-    
+
     public func remainderReportingOverflow(dividingBy rhs: UInt256) -> (partialValue: UInt256, overflow: Bool) {
-        return (0, true)
+        if rhs == 0 {
+            return (UInt256(self), true)
+        }
+        let (_, result) = UInt256.divisionWithModulo(self, rhs)
+        return (result, false)
     }
-    
+
     public func multipliedFullWidth(by other: UInt256) -> (high: UInt256, low: UInt256) {
-        return (0, 0)
+        return (0, 0) // TODO: impl
     }
-    
+
     public func dividingFullWidth(_ dividend: (high: UInt256, low: UInt256)) -> (quotient: UInt256, remainder: UInt256) {
-        return (0, 0)
+        return (0, 0) // TODO: impl
     }
 }
