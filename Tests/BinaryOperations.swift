@@ -12,11 +12,13 @@ class UInt256BinaryOperationsTests: XCTestCase {
 
     func testBinaryProperties() {
         XCTAssertEqual(UInt256.isSigned, false)
-        
-        
+
         let a: UInt256 = 0
         XCTAssertEqual(a.bitWidth, 256)
+        XCTAssertEqual(a.nonzeroBitCount, 0)
         XCTAssertEqual(a.trailingZeroBitCount, 256)
+        XCTAssertEqual(a.leadingZeroBitCount, 256)
+        XCTAssertEqual(a.byteSwapped, 0)
 
         let b = UInt256([
             0x8000000000000000,
@@ -26,16 +28,33 @@ class UInt256BinaryOperationsTests: XCTestCase {
         ])
         
         XCTAssertEqual(b.bitWidth, 256)
+        XCTAssertEqual(b.nonzeroBitCount, 1)
         XCTAssertEqual(b.trailingZeroBitCount, 255)
+        XCTAssertEqual(b.leadingZeroBitCount, 0)
+        XCTAssertEqual(b.byteSwapped, UInt256([0, 0, 0, 0x80]))
 
         let c = UInt256([
-            0x8000000000000000,
-            0x0000000000000000,
+            0x0000000100000000,
+            0x0000000100000000,
             0x0000000100000000,
             0x0000000100000000
         ])
         XCTAssertEqual(c.bitWidth, 256)
+        XCTAssertEqual(c.nonzeroBitCount, 4)
         XCTAssertEqual(c.trailingZeroBitCount, 32)
+        XCTAssertEqual(c.leadingZeroBitCount, 31)
+        XCTAssertEqual(c.byteSwapped, UInt256([
+            0x1000000,
+            0x1000000,
+            0x1000000,
+            0x1000000
+        ]))
+
+        let d = UInt256([0, 0, 1, 0])
+        XCTAssertEqual(d.bitWidth, 256)
+        XCTAssertEqual(d.nonzeroBitCount, 1)
+        XCTAssertEqual(d.trailingZeroBitCount, 64)
+        XCTAssertEqual(d.leadingZeroBitCount, 191)
     }
 
     func testShift() {

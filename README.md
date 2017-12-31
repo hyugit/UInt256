@@ -17,7 +17,7 @@ The main struct UInt256 conforms to the following protocols:
 
  - [ ] make UInt256 conform to FixedWidthInteger
  - [ ] add an example, preferably through a playground
- - [ ] more tests, test coverage and corner cases
+ - [ ] more tests, test coverage, corner cases, lint, code review
  - [ ] automate build and test runs
  - [ ] karatsuba multiplication
  - [ ] fast modulo, division, and other algos
