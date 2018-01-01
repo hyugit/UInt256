@@ -6,7 +6,7 @@
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 
-A full UInt256 library written in Swift 4, **heavily inspired** by [CryptoCoinSwift/UInt256](https://github.com/CryptoCoinSwift/UInt256)
+A UInt256 library written in Swift 4, **heavily influenced** by [CryptoCoinSwift/UInt256](https://github.com/CryptoCoinSwift/UInt256)
 
 ## Features
 
@@ -21,7 +21,9 @@ The main struct UInt256 conforms to the following protocols:
  - etc (please see to the source code)
 
 A complete set of arithmetic operators are implemented, so are properties and functions
-commonly found on other UInt family members (`Uint64`, `UInt32`, `UInt16`, etc). A playground is also included as a testbench.
+commonly found on other UInt family members (`Uint64`, `UInt32`, `UInt16`, etc).
+
+A playground is also included as a testbench.
 
 Other features, such as fast multiplication and CocoaPods support are in the development pipeline.
 Please feel free to submit new feature request by opening issues here on GitHub. :smiley:
