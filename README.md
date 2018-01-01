@@ -4,6 +4,7 @@
 [![Language](https://img.shields.io/badge/swift-4-orange.svg)](https://swift.org)
 [![Platform](https://img.shields.io/badge/platform-ios%20|%20macos-lightgrey.svg)](https://github.com/mryu87/UInt256)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Build Status](https://travis-ci.org/mryu87/UInt256.svg?branch=master)](https://travis-ci.org/mryu87/UInt256)
 
 
 A UInt256 library written in Swift 4, **heavily influenced** by [CryptoCoinSwift/UInt256](https://github.com/CryptoCoinSwift/UInt256)
@@ -94,7 +95,7 @@ the framework to your build target._
  - [ ] add documentation
  - [ ] add CocoaPods support
  - [ ] more tests, test coverage, corner cases, lint, code review
- - [ ] automate build and test runs
+ - [x] automate build and test runs
  - [ ] benchmark
  - [ ] karatsuba multiplication
  - [ ] fast modulo, division, and other algos
