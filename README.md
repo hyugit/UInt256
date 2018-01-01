@@ -16,7 +16,8 @@ The main struct UInt256 conforms to the following protocols:
 ## TO DO
 
  - [ ] make UInt256 conform to FixedWidthInteger
- - [ ] add an example, preferably through a playground
+ - [x] add an example, preferably through a playground
+ - [ ] add documentation
  - [ ] more tests, test coverage, corner cases, lint, code review
  - [ ] automate build and test runs
  - [ ] benchmark

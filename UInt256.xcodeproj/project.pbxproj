@@ -44,6 +44,16 @@
 		63FE07E61FF80D4D005DAAEE /* BinaryOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FE07E51FF80D4D005DAAEE /* BinaryOperations.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		63C63F731FF9DD4A0096F3CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5F035D9EC269F88501C37787 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 636509E11FF859640065405F;
+			remoteInfo = "UInt256 iOS";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		5F0351EAC2C66F0799530F3A /* Arithmetics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Arithmetics.swift; sourceTree = "<group>"; };
 		5F035264CA1ECAAAE59E0F45 /* UInt256+BinaryInteger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UInt256+BinaryInteger.swift"; sourceTree = "<group>"; };
@@ -61,6 +71,7 @@
 		636509E41FF859640065405F /* UInt256.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UInt256.h; sourceTree = "<group>"; };
 		636509E51FF859640065405F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63650A311FF85F960065405F /* UInt256_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UInt256_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63C63F781FF9E2F00096F3CD /* UInt256Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = UInt256Playground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		63FCC6771FF956ED0073BF65 /* UInt256+FixedWidthInteger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt256+FixedWidthInteger.swift"; sourceTree = "<group>"; };
 		63FE07E51FF80D4D005DAAEE /* BinaryOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryOperations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,6 +133,7 @@
 		5F0358EFC1F53F92384284FC = {
 			isa = PBXGroup;
 			children = (
+				63C63F781FF9E2F00096F3CD /* UInt256Playground.playground */,
 				5F0358DF56F06BD1261F0F86 /* Products */,
 				5F035754AD6987595E1FC9E6 /* Sources */,
 				5F035EAA6B03AFDA84666872 /* Tests */,
@@ -179,6 +191,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				63C63F741FF9DD4A0096F3CD /* PBXTargetDependency */,
 			);
 			name = UInt256Tests;
 			productName = UInt256Tests;
@@ -341,6 +354,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		63C63F741FF9DD4A0096F3CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 636509E11FF859640065405F /* UInt256 iOS */;
+			targetProxy = 63C63F731FF9DD4A0096F3CD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		5F0352359C1A44149E7A9397 /* Debug */ = {
