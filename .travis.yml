@@ -1,0 +1,17 @@
+language: objective-c
+osx_image: xcode9.2
+branches:
+  only:
+    - master
+env:
+  matrix:
+    - DESTINATION="platform=iOS Simulator,name=iPhone 5s"   SCHEME="UInt256Tests"   ACTION="build test"
+    - DESTINATION="OS=11.2,name=iPhone X"                   SCHEME="UInt256 iOS"    ACTION="build"
+    - DESTINATION="OS=11.2,name=iPhone 7 Plus"              SCHEME="UInt256 iOS"    ACTION="build"
+    - DESTINATION="OS=11.2,name=iPhone 7S"                  SCHEME="UInt256 iOS"    ACTION="build"
+    - DESTINATION="arch=x86_64"                             SCHEME="UInt256 macOS"  ACTION="build"
+script:
+  - xcodebuild -version
+  - xcodebuild -showsdks
+  - xcodebuild -scheme "$SCHEME" -destination "$DESTINATION" -configuration Debug $ACTION 
+  - xcodebuild -scheme "$SCHEME" -destination "$DESTINATION" -configuration Release $ACTION 
