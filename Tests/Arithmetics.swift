@@ -4,7 +4,7 @@
 //
 
 import XCTest
-@testable import UInt256
+@testable import UInt256_iOS
 
 class UInt256ArithmeticTests: XCTestCase {
 

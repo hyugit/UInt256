@@ -1,6 +1,5 @@
 ### User Added ###
 .idea
-*.playground
 
 # Created by https://www.gitignore.io/api/swift,xcode,swiftpm,appcode,jetbrains,swiftpackagemanager,macos
 
