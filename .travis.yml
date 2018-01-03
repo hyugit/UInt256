@@ -3,9 +3,12 @@ osx_image: xcode9.2
 branches:
   only:
     - master
+before_install:
+  - gem install cocoapods --pre --no-rdoc --no-ri --no-document --quiet
 script:
   - xcodebuild -scheme "UInt256Tests" -destination "platform=iOS Simulator,name=iPhone 5s" test
   - xcodebuild -scheme "UInt256 iOS" -destination "OS=11.2,name=iPhone X" -destination "OS=11.2,name=iPhone 5s" -configuration Debug build
   - xcodebuild -scheme "UInt256 iOS" -destination "OS=11.2,name=iPhone X" -destination "OS=11.2,name=iPhone 5s" -configuration Release build
   - xcodebuild -scheme "UInt256 macOS" -destination "arch=x86_64" -configuration Debug build
   - xcodebuild -scheme "UInt256 macOS" -destination "arch=x86_64" -configuration Release build
+  - pod lib lint

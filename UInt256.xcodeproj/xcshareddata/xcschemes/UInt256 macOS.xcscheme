@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "63650A301FF85F960065405F"
-               BuildableName = "UInt256_macOS.framework"
+               BuildableName = "UInt256.framework"
                BlueprintName = "UInt256 macOS"
                ReferencedContainer = "container:UInt256.xcodeproj">
             </BuildableReference>
@@ -48,7 +48,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "63650A301FF85F960065405F"
-            BuildableName = "UInt256_macOS.framework"
+            BuildableName = "UInt256.framework"
             BlueprintName = "UInt256 macOS"
             ReferencedContainer = "container:UInt256.xcodeproj">
          </BuildableReference>
@@ -66,7 +66,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "63650A301FF85F960065405F"
-            BuildableName = "UInt256_macOS.framework"
+            BuildableName = "UInt256.framework"
             BlueprintName = "UInt256 macOS"
             ReferencedContainer = "container:UInt256.xcodeproj">
          </BuildableReference>
