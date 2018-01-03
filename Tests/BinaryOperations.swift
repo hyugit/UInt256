@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import UInt256
 
 class UInt256BinaryOperationsTests: XCTestCase {
 

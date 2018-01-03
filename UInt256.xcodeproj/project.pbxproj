@@ -16,15 +16,6 @@
 		636509FF1FF85AF80065405F /* UInt256+Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F035F668D48F1590FC8FAF2 /* UInt256+Hashable.swift */; };
 		63650A001FF85AF80065405F /* UInt256+Numeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F035E98CEFCC0896AF02286 /* UInt256+Numeric.swift */; };
 		63650A011FF85AF80065405F /* UInt256+BinaryInteger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F035264CA1ECAAAE59E0F45 /* UInt256+BinaryInteger.swift */; };
-		63650A0B1FF85AFD0065405F /* UInt256.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F035F24AA367283E3EE5D6F /* UInt256.swift */; };
-		63650A0C1FF85AFD0065405F /* UInt256+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F035F06AAC160550E9AED24 /* UInt256+Equatable.swift */; };
-		63650A0D1FF85AFD0065405F /* UInt256+ExpressibleByIntegerLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F035FECB76F1CC8BE630CD3 /* UInt256+ExpressibleByIntegerLiteral.swift */; };
-		63650A0E1FF85AFD0065405F /* UInt256+Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F035CB70A0E731B76686F49 /* UInt256+Comparable.swift */; };
-		63650A0F1FF85AFD0065405F /* UInt256+UnsignedInteger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0358762FD13479181171FD /* UInt256+UnsignedInteger.swift */; };
-		63650A101FF85AFD0065405F /* UInt256+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F035504EE2DFCE6F8576E68 /* UInt256+CustomStringConvertible.swift */; };
-		63650A111FF85AFD0065405F /* UInt256+Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F035F668D48F1590FC8FAF2 /* UInt256+Hashable.swift */; };
-		63650A121FF85AFD0065405F /* UInt256+Numeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F035E98CEFCC0896AF02286 /* UInt256+Numeric.swift */; };
-		63650A131FF85AFD0065405F /* UInt256+BinaryInteger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F035264CA1ECAAAE59E0F45 /* UInt256+BinaryInteger.swift */; };
 		63650A2B1FF85E190065405F /* UInt256.h in Headers */ = {isa = PBXBuildFile; fileRef = 636509E41FF859640065405F /* UInt256.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		63650A391FF85FE50065405F /* UInt256.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F035F24AA367283E3EE5D6F /* UInt256.swift */; };
 		63650A3A1FF85FE50065405F /* UInt256+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F035F06AAC160550E9AED24 /* UInt256+Equatable.swift */; };
@@ -38,7 +29,7 @@
 		63650A421FF85FE90065405F /* UInt256.h in Headers */ = {isa = PBXBuildFile; fileRef = 636509E41FF859640065405F /* UInt256.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		63ADD5AF1FF7FAB40081AF93 /* Arithmetics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0351EAC2C66F0799530F3A /* Arithmetics.swift */; };
 		63ADD5B01FF7FAB70081AF93 /* UInt256Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0353CA2318ABFE778872BF /* UInt256Tests.swift */; };
-		63FCC6781FF956ED0073BF65 /* UInt256+FixedWidthInteger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FCC6771FF956ED0073BF65 /* UInt256+FixedWidthInteger.swift */; };
+		63C0F84D1FFD239700C64D9D /* UInt256.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 636509E21FF859640065405F /* UInt256.framework */; };
 		63FCC6791FF956ED0073BF65 /* UInt256+FixedWidthInteger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FCC6771FF956ED0073BF65 /* UInt256+FixedWidthInteger.swift */; };
 		63FCC67A1FF956ED0073BF65 /* UInt256+FixedWidthInteger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FCC6771FF956ED0073BF65 /* UInt256+FixedWidthInteger.swift */; };
 		63FE07E61FF80D4D005DAAEE /* BinaryOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FE07E51FF80D4D005DAAEE /* BinaryOperations.swift */; };
@@ -67,10 +58,10 @@
 		5F035F668D48F1590FC8FAF2 /* UInt256+Hashable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UInt256+Hashable.swift"; sourceTree = "<group>"; };
 		5F035FC15F3BCC0C1819E3C8 /* UInt256Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UInt256Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F035FECB76F1CC8BE630CD3 /* UInt256+ExpressibleByIntegerLiteral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UInt256+ExpressibleByIntegerLiteral.swift"; sourceTree = "<group>"; };
-		636509E21FF859640065405F /* UInt256_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UInt256_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		636509E21FF859640065405F /* UInt256.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UInt256.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		636509E41FF859640065405F /* UInt256.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UInt256.h; sourceTree = "<group>"; };
 		636509E51FF859640065405F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		63650A311FF85F960065405F /* UInt256_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UInt256_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63650A311FF85F960065405F /* UInt256.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UInt256.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63C63F781FF9E2F00096F3CD /* UInt256Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = UInt256Playground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		63FCC6771FF956ED0073BF65 /* UInt256+FixedWidthInteger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt256+FixedWidthInteger.swift"; sourceTree = "<group>"; };
 		63FE07E51FF80D4D005DAAEE /* BinaryOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryOperations.swift; sourceTree = "<group>"; };
@@ -81,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63C0F84D1FFD239700C64D9D /* UInt256.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,8 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				5F035FC15F3BCC0C1819E3C8 /* UInt256Tests.xctest */,
-				636509E21FF859640065405F /* UInt256_iOS.framework */,
-				63650A311FF85F960065405F /* UInt256_macOS.framework */,
+				636509E21FF859640065405F /* UInt256.framework */,
+				63650A311FF85F960065405F /* UInt256.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -213,7 +205,7 @@
 			);
 			name = "UInt256 iOS";
 			productName = "UInt256 iOS";
-			productReference = 636509E21FF859640065405F /* UInt256_iOS.framework */;
+			productReference = 636509E21FF859640065405F /* UInt256.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		63650A301FF85F960065405F /* UInt256 macOS */ = {
@@ -231,7 +223,7 @@
 			);
 			name = "UInt256 macOS";
 			productName = "UInt256 macOS";
-			productReference = 63650A311FF85F960065405F /* UInt256_macOS.framework */;
+			productReference = 63650A311FF85F960065405F /* UInt256.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -303,17 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63650A0C1FF85AFD0065405F /* UInt256+Equatable.swift in Sources */,
-				63650A131FF85AFD0065405F /* UInt256+BinaryInteger.swift in Sources */,
-				63650A111FF85AFD0065405F /* UInt256+Hashable.swift in Sources */,
 				63ADD5B01FF7FAB70081AF93 /* UInt256Tests.swift in Sources */,
-				63650A0D1FF85AFD0065405F /* UInt256+ExpressibleByIntegerLiteral.swift in Sources */,
-				63650A101FF85AFD0065405F /* UInt256+CustomStringConvertible.swift in Sources */,
-				63650A0F1FF85AFD0065405F /* UInt256+UnsignedInteger.swift in Sources */,
-				63650A121FF85AFD0065405F /* UInt256+Numeric.swift in Sources */,
-				63FCC6781FF956ED0073BF65 /* UInt256+FixedWidthInteger.swift in Sources */,
-				63650A0B1FF85AFD0065405F /* UInt256.swift in Sources */,
-				63650A0E1FF85AFD0065405F /* UInt256+Comparable.swift in Sources */,
 				63FE07E61FF80D4D005DAAEE /* BinaryOperations.swift in Sources */,
 				63ADD5AF1FF7FAB40081AF93 /* Arithmetics.swift in Sources */,
 			);
@@ -415,6 +397,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = UInt256;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 4.0;
 			};
@@ -464,6 +447,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = UInt256;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
@@ -604,7 +588,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mryu87.UInt256-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = UInt256;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -629,7 +613,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mryu87.UInt256-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = UInt256;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -655,7 +639,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mryu87.UInt256-macOS";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = UInt256;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -683,7 +667,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mryu87.UInt256-macOS";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = UInt256;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
