@@ -1,10 +1,3 @@
-//
-//  UInt256+FixedWidthInteger.swift
-//  UInt256
-//
-//  Created by Huang Yu on 12/31/17.
-//
-
 import Foundation
 
 extension UInt256: FixedWidthInteger {
