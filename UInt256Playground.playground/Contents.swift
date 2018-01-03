@@ -2,7 +2,7 @@
 
 
 import Foundation
-@testable import UInt256_iOS
+@testable import UInt256
 
 let a = UInt256.max
 let b = UInt256(UInt64.max)

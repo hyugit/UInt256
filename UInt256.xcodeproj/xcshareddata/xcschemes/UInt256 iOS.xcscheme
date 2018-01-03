@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "636509E11FF859640065405F"
-               BuildableName = "UInt256_iOS.framework"
+               BuildableName = "UInt256.framework"
                BlueprintName = "UInt256 iOS"
                ReferencedContainer = "container:UInt256.xcodeproj">
             </BuildableReference>
@@ -34,7 +34,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "636509E11FF859640065405F"
-            BuildableName = "UInt256_iOS.framework"
+            BuildableName = "UInt256.framework"
             BlueprintName = "UInt256 iOS"
             ReferencedContainer = "container:UInt256.xcodeproj">
          </BuildableReference>
@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "636509E11FF859640065405F"
-            BuildableName = "UInt256_iOS.framework"
+            BuildableName = "UInt256.framework"
             BlueprintName = "UInt256 iOS"
             ReferencedContainer = "container:UInt256.xcodeproj">
          </BuildableReference>
@@ -75,7 +75,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "636509E11FF859640065405F"
-            BuildableName = "UInt256_iOS.framework"
+            BuildableName = "UInt256.framework"
             BlueprintName = "UInt256 iOS"
             ReferencedContainer = "container:UInt256.xcodeproj">
          </BuildableReference>

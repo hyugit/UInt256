@@ -1,10 +1,11 @@
 # UInt256
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Build Status](https://travis-ci.org/mryu87/UInt256.svg?branch=master)](https://travis-ci.org/mryu87/UInt256)
 [![Language](https://img.shields.io/badge/swift-4-orange.svg)](https://swift.org)
 [![Platform](https://img.shields.io/badge/platform-ios%20|%20macos-lightgrey.svg)](https://github.com/mryu87/UInt256)
-[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![Build Status](https://travis-ci.org/mryu87/UInt256.svg?branch=master)](https://travis-ci.org/mryu87/UInt256)
+[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-green.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![CocoaPods Compatible](https://img.shields.io/badge/CocoaPods-compatible-green.svg?style=flat)](https://cocoapods.org/)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 
 A UInt256 library written in Swift 4, **heavily influenced** by [CryptoCoinSwift/UInt256](https://github.com/CryptoCoinSwift/UInt256)
@@ -24,9 +25,10 @@ The main struct UInt256 conforms to the following protocols:
 A complete set of arithmetic operators are implemented, so are properties and functions
 commonly found on other UInt family members (`Uint64`, `UInt32`, `UInt16`, etc).
 
+The library itself can be installed as a Swift Package, a Carthage package or a CocoaPod.
 A playground is also included as a testbench.
 
-Other features, such as fast multiplication and CocoaPods support are in the development pipeline.
+Other features such as fast multiplication are in the development pipeline.
 Please feel free to submit new feature request by opening issues here on GitHub. :smiley:
 
 ## Requirements
@@ -73,6 +75,24 @@ dependencies: [
 ]
 ```
 
+### CocoaPods
+
+Install CocoaPods following its [official guide](http://guides.cocoapods.org/using/getting-started.html#installation)
+
+To integrate UInt256 into your Xcode project using CocoaPods, specify it in your `Podfile`:
+
+```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '10.0'
+use_frameworks!
+
+target '<Your Target Name>' do
+    pod 'UInt256', :git => 'https://github.com/mryu87/UInt256.git'
+end
+```
+
+And run `pod install` afterwards.
+
 ### Manual installation
 
 You can also add this library manually to your project.
@@ -93,7 +113,7 @@ the framework to your build target._
  - [ ] make UInt256 conform to FixedWidthInteger
  - [x] add an example, preferably through a playground
  - [ ] add documentation
- - [ ] add CocoaPods support
+ - [x] add CocoaPods support
  - [ ] more tests, test coverage, corner cases, lint, code review
  - [x] automate build and test runs
  - [ ] benchmark
