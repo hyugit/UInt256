@@ -8,7 +8,7 @@ extension UInt256: FixedWidthInteger {
             let bits = _truncatingBits >> i * 64
             result.append(UInt64(_truncatingBits: bits))
         }
-        self.init(result)
+        self.init(withUInt64Array: result)
     }
 
     public var nonzeroBitCount: Int {
@@ -55,7 +55,7 @@ extension UInt256: FixedWidthInteger {
     }
 
     public func dividedReportingOverflow(by rhs: UInt256) -> (partialValue: UInt256, overflow: Bool) {
-        if rhs == 0 {
+        guard rhs > 0 else {
             return (UInt256(self), true)
         }
         let (result, _) = UInt256.divisionWithModulo(self, rhs)
@@ -63,7 +63,7 @@ extension UInt256: FixedWidthInteger {
     }
 
     public func remainderReportingOverflow(dividingBy rhs: UInt256) -> (partialValue: UInt256, overflow: Bool) {
-        if rhs == 0 {
+        guard rhs > 0 else {
             return (UInt256(self), true)
         }
         let (_, result) = UInt256.divisionWithModulo(self, rhs)
