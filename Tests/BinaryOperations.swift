@@ -21,6 +21,9 @@ class UInt256BinaryOperationsTests: XCTestCase {
         XCTAssertEqual(a.leadingZeroBitCount, 256)
         XCTAssertEqual(a.byteSwapped, 0)
 
+        // TODO: check the correctness of this test
+        XCTAssertEqual(a.words, [0, 0, 0, 0])
+
         let b = UInt256([
             0x8000000000000000,
             0x0000000000000000,
@@ -33,6 +36,9 @@ class UInt256BinaryOperationsTests: XCTestCase {
         XCTAssertEqual(b.trailingZeroBitCount, 255)
         XCTAssertEqual(b.leadingZeroBitCount, 0)
         XCTAssertEqual(b.byteSwapped, UInt256([0, 0, 0, 0x80]))
+
+        // TODO: check the correctness of this test
+        XCTAssertEqual(b.words, [0, 0, 0, 0x8000000000000000])
 
         let c = UInt256([
             0x0000000100000000,
@@ -50,39 +56,65 @@ class UInt256BinaryOperationsTests: XCTestCase {
             0x1000000,
             0x1000000
         ]))
+        // TODO: check the correctness of this test
+        XCTAssertEqual(c.words, [
+            0x100000000,
+            0x100000000,
+            0x100000000,
+            0x100000000,
+        ])
 
         let d = UInt256([0, 0, 1, 0])
         XCTAssertEqual(d.bitWidth, 256)
         XCTAssertEqual(d.nonzeroBitCount, 1)
         XCTAssertEqual(d.trailingZeroBitCount, 64)
         XCTAssertEqual(d.leadingZeroBitCount, 191)
+
+        // TODO: check the correctness of this test
+        XCTAssertEqual(d.words, [0, 1, 0, 0])
     }
 
     func testShift() {
         let a = UInt256([0, 0xffffffffffffffff, 0, 0xffffffffffffffff])
         let b = a << UInt256(0xffffffff00000000 as UInt64)
-        let b0 = a << 200
-        let b1 = a << 4
-        let c0 = a >> 130
-        let c1 = a >> 8
         XCTAssertEqual(b, UInt256([
             0,
             0,
             0,
             0
         ]))
+
+        let b0 = a << 200
         XCTAssertEqual(b0, UInt256([
             0xffffffffffffff00,
             0x0,
             0,
             0
         ]))
+        XCTAssertEqual(a >> b0, UInt256.min)
+
+        var b1 = a
+        b1 <<= 4
+        let b2 = a << (4 as UInt)
+        let b3 = a << (4 as Int)
+        var b4 = a
+        b4 <<= (4 as UInt)
         XCTAssertEqual(b1, UInt256([
             0xf,
             0xfffffffffffffff0,
             0xf,
             0xfffffffffffffff0
         ]))
+        XCTAssertEqual(b1, b2)
+        XCTAssertEqual(b2, b3)
+        XCTAssertEqual(b3, b4)
+
+        var c0 = a
+        c0 >>= 130
+        let c1 = a >> (8 as UInt)
+        var c2 = a
+        c2 >>= (130 as UInt)
+        let c3 = a >> (130 as Int)
         XCTAssertEqual(c0, UInt256([
             0,
             0,
@@ -95,6 +127,8 @@ class UInt256BinaryOperationsTests: XCTestCase {
             0xff00000000000000,
             0x00ffffffffffffff
         ]))
+        XCTAssertEqual(c0, c2)
+        XCTAssertEqual(c3, c2)
     }
     
     func testShift1() {
@@ -138,5 +172,12 @@ class UInt256BinaryOperationsTests: XCTestCase {
         XCTAssertEqual(a ^ a, UInt256.min)
         XCTAssertEqual(a ^ b, UInt256.max)
         XCTAssertEqual(~a, b)
+        var c = a
+        c &= b
+        XCTAssertEqual(c, UInt256.min)
+        c |= a
+        XCTAssertEqual(c, a)
+        c ^= b
+        XCTAssertEqual(c, UInt256.max)
     }
 }
