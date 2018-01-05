@@ -1,14 +1,11 @@
 //
-// Created by MrYu87 on 12/29/17.
-// Copyright (c) 2017 MrYu87. All rights reserved.
-//
 
 import Foundation
 
 extension UInt256: Numeric {
 
     static func getAdderCarry(value: UInt64, lhs: UInt64, rhs: UInt64, carry: UInt64) -> UInt64 {
-        if lhs == 0 && rhs == 0 && carry == 0 {
+        guard lhs > 0 || rhs > 0 || carry > 0 else {
             return 0
         }
         let a = value <= lhs
@@ -83,7 +80,7 @@ extension UInt256: Numeric {
     }
 
     static func multiply(_ lhs: UInt256, byUInt64 rhs: UInt64) -> UInt256 {
-        if lhs == 0 || rhs == 0 {
+        guard lhs > 0 && rhs > 0 else {
             return 0
         }
 
@@ -123,10 +120,7 @@ extension UInt256: Numeric {
     }
 
     public static func divisionWithModulo(_ lhs: UInt256, _ rhs: UInt256) -> (UInt256, UInt256) {
-        if lhs == 0 || rhs == 0 {
-            return (0, 0)
-        }
-        if rhs == 1 {
+        guard lhs > 0 && rhs > 1 else {
             return (0, 0)
         }
 

@@ -1,25 +1,22 @@
 //
-// Created by MrYu87 on 12/29/17.
-// Copyright (c) 2017 MrYu87. All rights reserved.
-//
-
 import Foundation
 
 extension UInt256: BinaryInteger {
-    
+
     public typealias Words = [UInt]
-    
+
     public static var isSigned: Bool {
         return false
     }
-    
+
     public var words: [UInt] {
-        return [
-            UInt(parts[0]),
-            UInt(parts[1]),
-            UInt(parts[2]),
-            UInt(parts[3])
-        ]
+        get {
+            var result = [UInt]()
+            for value in parts.reversed() {
+                result.append(contentsOf: value.words)
+            }
+            return result
+        }
     }
 
     public static var bitWidth: Int {
@@ -40,30 +37,29 @@ extension UInt256: BinaryInteger {
         }
         return result
     }
-    
+
     public init<T>(_ source: T) where T : BinaryFloatingPoint {
-        self.init(truncatingIfNeeded: UInt64(source))
+        self.init(withUInt64: UInt64(source))
     }
-    
-    public init<T>(_ source: T) where T : BinaryInteger {
-        self.init(truncatingIfNeeded: source)
-    }
-    
+
     public init?<T: BinaryInteger>(exactly source: T) {
-        self.init(UInt64(source))
+        if let uint64 = UInt64(exactly: source) {
+            self.init(withUInt64: uint64)
+        } else {
+            return nil
+        }
     }
     
     public init<T: BinaryInteger>(clamping source: T) {
-        self.init(truncatingIfNeeded: source)
+        self.init(withUInt64: UInt64(clamping: source))
     }
-    
-    public init<T: BinaryInteger>(truncatingIfNeeded: T) {
-        let binaryInteger = truncatingIfNeeded & (0xffffffffffffffff as T)
-        self.init(UInt64(binaryInteger))
+
+    public init<T: BinaryInteger>(truncatingIfNeeded source: T) {
+        self.init(withUInt64: UInt64(truncatingIfNeeded: source))
     }
 
     static func leftShift(_ lhs: UInt256, _ rhs: UInt256) -> UInt256 {
-        if rhs > 255 {
+        guard rhs < 256 else {
             return UInt256(0)
         }
         let modulus = Int(rhs[3] & 0x00ff)
@@ -93,7 +89,7 @@ extension UInt256: BinaryInteger {
     public static func <<<T: BinaryInteger>(lhs: UInt256, rhs: T) -> UInt256 {
         return leftShift(lhs, UInt256(rhs))
     }
-    
+
     public static func <<=<T: BinaryInteger>(lhs: inout UInt256, rhs: T) {
         lhs = leftShift(lhs, UInt256(rhs))
     }
@@ -107,7 +103,7 @@ extension UInt256: BinaryInteger {
     }
 
     static func rightShift(_ lhs: UInt256, _ rhs: UInt256) -> UInt256 {
-        if rhs > 255 {
+        guard rhs < 256 else {
             return UInt256(0)
         }
         let modulus = Int(rhs[3] & 0x00ff)
