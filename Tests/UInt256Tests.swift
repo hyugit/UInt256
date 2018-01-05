@@ -6,8 +6,31 @@ class UInt256Tests: XCTestCase {
     func testInit() {
         let a: UInt256 = UInt256(0)
         let b: UInt256 = UInt256(0x11111111)
+        let c: UInt256 = UInt256(-1)
         XCTAssertNotNil(a)
         XCTAssertNotNil(b)
+        XCTAssertEqual(UInt256(), a)
+        XCTAssertEqual(0, a)
+        XCTAssertEqual(c, UInt256.max)
+    }
+
+    func testInit1() {
+        var a = UInt256(exactly: -1)
+        XCTAssertEqual(a, nil)
+        a = UInt256(clamping: -1)
+        XCTAssertEqual(a, UInt256.min)
+        a = UInt256(truncatingIfNeeded: -1)
+        XCTAssertEqual(a, UInt256([0, 0, 0, UInt64.max]))
+
+        a = UInt256(exactly: 1)
+        XCTAssertEqual(a, 1)
+        a = UInt256(clamping: 1)
+        XCTAssertEqual(a, 1)
+        a = UInt256(truncatingIfNeeded: 1)
+        XCTAssertEqual(a, UInt256([0, 0, 0, 1]))
+        
+        a = UInt256(198223.1)
+        XCTAssertEqual(a, UInt256([0, 0, 0, 198223]))
     }
 
     func testAssign() {
@@ -31,6 +54,12 @@ class UInt256Tests: XCTestCase {
         )
         XCTAssertEqual(a, b)
         XCTAssertEqual(UInt256(c), d)
+        var e = UInt256(a)
+        e[0] = 0
+        e[1] = 0
+        e[2] = 0
+        e[3] = 1
+        XCTAssertEqual(e, d)
     }
 
     func testEqual() {
