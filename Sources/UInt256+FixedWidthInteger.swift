@@ -58,7 +58,7 @@ extension UInt256: FixedWidthInteger {
         guard rhs > 0 else {
             return (UInt256(self), true)
         }
-        let (result, _) = UInt256.divisionWithModulo(self, rhs)
+        let (result, _) = UInt256.divisionWithRemainder(self, rhs)
         return (result, false)
     }
 
@@ -66,7 +66,7 @@ extension UInt256: FixedWidthInteger {
         guard rhs > 0 else {
             return (UInt256(self), true)
         }
-        let (_, result) = UInt256.divisionWithModulo(self, rhs)
+        let (_, result) = UInt256.divisionWithRemainder(self, rhs)
         return (result, false)
     }
 

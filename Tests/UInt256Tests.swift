@@ -13,6 +13,15 @@ class UInt256Tests: XCTestCase {
         XCTAssertEqual(0, a)
         XCTAssertEqual(c, UInt256.max)
     }
+    
+    func testInit0() {
+        let a = UInt256([0, 0])
+        let b = UInt256([0, 0x11111111])
+        let c = UInt256(b[2...3])
+        
+        XCTAssertEqual(a, 0)
+        XCTAssertEqual(b, c)
+    }
 
     func testInit1() {
         var a = UInt256(exactly: -1)
@@ -88,7 +97,7 @@ class UInt256Tests: XCTestCase {
         XCTAssertTrue(a <= b)
     }
 
-    func testUnsignedInteger() {
+    func testMinMax() {
         let a: UInt256 = UInt256.max
         let b: UInt256 = UInt256.min
         let m = b.magnitude
