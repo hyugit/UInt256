@@ -117,7 +117,7 @@ the framework to your build target._
  - [ ] more tests, test coverage, corner cases, lint, code review
  - [x] automate build and test runs
  - [ ] benchmark
- - [ ] karatsuba multiplication
+ - [x] karatsuba multiplication
  - [ ] fast modulo, division, and other algos
 
 ## License

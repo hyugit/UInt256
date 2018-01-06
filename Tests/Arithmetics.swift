@@ -146,23 +146,38 @@ class UInt256ArithmeticTests: XCTestCase {
             0x0000000100000001,
             0x0000000100000001,
         ]))
+
+        XCTAssertEqual(a / UInt256.max, 0)
+        XCTAssertEqual(a / a, 1)
+        XCTAssertEqual(a % UInt256.max, a)
+        XCTAssertEqual(a % a, 0)
     }
     
     func testArithmetic() {
-        let b = UInt256([
-            generateRandomUInt64(),
-            generateRandomUInt64(),
-            generateRandomUInt64(),
-            generateRandomUInt64()
-        ])
-        let c = UInt256([
-            0,
-            0,
-            generateRandomUInt64(),
-            generateRandomUInt64()
-        ])
-        let result = b / c
-        let remainder = b % c
-        XCTAssertEqual(result * c + remainder, b)
+        for _ in 1..<10 {
+            let b = UInt256([
+                generateRandomUInt64(),
+                generateRandomUInt64(),
+                generateRandomUInt64(),
+                generateRandomUInt64()
+            ])
+            let c = UInt256([
+                0,
+                0,
+                generateRandomUInt64(),
+                generateRandomUInt64()
+            ])
+            let result = b / c
+            let remainder = b % c
+            XCTAssertEqual(result * c + remainder, b)
+        }
+    }
+
+    func testKaratsuba() {
+        let a = UInt256.max
+        let b = UInt256.max
+        let (high, low) = UInt256.karatsuba(a, b)
+        XCTAssertEqual(high, UInt256(-2))
+        XCTAssertEqual(low, UInt256(1))
     }
 }
