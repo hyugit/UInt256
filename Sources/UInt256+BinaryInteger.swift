@@ -146,11 +146,12 @@ extension UInt256: BinaryInteger {
     }
     
     public static func &(lhs: UInt256, rhs: UInt256) -> UInt256 {
-        var result = [UInt64]()
-        for i in 0..<4 {
-            result.append(lhs[i] & rhs[i])
-        }
-        return UInt256(result)
+        return UInt256([
+            lhs[0] & rhs[0],
+            lhs[1] & rhs[1],
+            lhs[2] & rhs[2],
+            lhs[3] & rhs[3],
+        ])
     }
     
     public static func &=(lhs: inout UInt256, rhs: UInt256) {
@@ -158,11 +159,12 @@ extension UInt256: BinaryInteger {
     }
     
     public static func ^(lhs: UInt256, rhs: UInt256) -> UInt256 {
-        var result = [UInt64]()
-        for i in 0..<4 {
-            result.append(lhs[i] ^ rhs[i])
-        }
-        return UInt256(result)
+        return UInt256([
+            lhs[0] ^ rhs[0],
+            lhs[1] ^ rhs[1],
+            lhs[2] ^ rhs[2],
+            lhs[3] ^ rhs[3],
+        ])
     }
     
     public static func ^=(lhs: inout UInt256, rhs: UInt256) {
@@ -170,11 +172,12 @@ extension UInt256: BinaryInteger {
     }
     
     public static func |(lhs: UInt256, rhs: UInt256) -> UInt256 {
-        var result = [UInt64]()
-        for i in 0..<4 {
-            result.append(lhs[i] | rhs[i])
-        }
-        return UInt256(result)
+        return UInt256([
+            lhs[0] | rhs[0],
+            lhs[1] | rhs[1],
+            lhs[2] | rhs[2],
+            lhs[3] | rhs[3],
+        ])
     }
     
     public static func |=(lhs: inout UInt256, rhs: UInt256) {
@@ -182,10 +185,6 @@ extension UInt256: BinaryInteger {
     }
     
     public static prefix func ~(lhs: UInt256) -> UInt256 {
-        var result = [UInt64]()
-        for i in 0..<4 {
-            result.append(~lhs[i])
-        }
-        return UInt256(result)
+        return UInt256([~lhs[0], ~lhs[1], ~lhs[2], ~lhs[3]])
     }
 }

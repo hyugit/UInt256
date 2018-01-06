@@ -38,7 +38,11 @@ public struct UInt256 {
     }
 
     public init(withUInt64Array values: [UInt64]) {
-        parts = [values[0], values[1], values[2], values[3]]
+        var _parts = Array(values)
+        while _parts.count < 4 {
+            _parts.insert(0, at: 0)
+        }
+        parts = Array(_parts[0...3])
     }
 
     subscript(index: Int) -> UInt64 {
@@ -47,6 +51,12 @@ public struct UInt256 {
         }
         mutating set {
             parts[index] = UInt64(newValue)
+        }
+    }
+
+    subscript(range: CountableClosedRange<Int>) -> [UInt64] {
+        get {
+            return Array(parts[range])
         }
     }
 

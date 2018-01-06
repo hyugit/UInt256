@@ -4,32 +4,18 @@ import Foundation
 
 extension UInt256: Numeric {
 
-    static func getAdderCarry(value: UInt64, lhs: UInt64, rhs: UInt64, carry: UInt64) -> UInt64 {
-        guard lhs > 0 || rhs > 0 || carry > 0 else {
-            return 0
-        }
-        let a = value <= lhs
-        let b = value <= rhs
-        let c = value <= carry
-
-        if a && b || b && c || a && c {
-            return 1
-        }
-
-        return 0
-    }
-
     static func add(_ lhs: UInt256, _ rhs: UInt256) -> (UInt256, Bool) {
         var values = [UInt64]()
         var carry: UInt64 = 0
         for i in (0..<4).reversed() {
-            values.insert(lhs[i] &+ rhs[i] &+ carry, at: 0)
-            carry = getAdderCarry(
-                value: values[0],
-                lhs: lhs[i],
-                rhs: rhs[i],
-                carry: carry
-            )
+            let (result1, overflow1) = lhs[i].addingReportingOverflow(rhs[i])
+            let (result2, overflow2) = result1.addingReportingOverflow(carry)
+            values.insert(result2, at: 0)
+            if overflow1 || overflow2 {
+                carry = 1
+            } else {
+                carry = 0
+            }
         }
 
         let result = UInt256(values)
@@ -48,7 +34,6 @@ extension UInt256: Numeric {
     }
 
     public static func +=(_ lhs: inout UInt256, _ rhs: UInt256) {
-//        lhs = try lhs + rhs
         lhs = lhs + rhs
     }
 
@@ -56,8 +41,14 @@ extension UInt256: Numeric {
         var values = [UInt64]()
         var carry: UInt64 = 0
         for i in (0..<4).reversed() {
-            values.insert(lhs[i] &- rhs[i] &- carry, at: 0)
-            carry = getAdderCarry(value: lhs[i], lhs: values[0], rhs: rhs[i], carry: carry)
+            let (result1, overflow1) = lhs[i].subtractingReportingOverflow(rhs[i])
+            let (result2, overflow2) = result1.subtractingReportingOverflow(carry)
+            values.insert(result2, at: 0)
+            if overflow1 || overflow2 {
+                carry = 1
+            } else {
+                carry = 0
+            }
         }
 
         let result = UInt256(values)
@@ -111,7 +102,7 @@ extension UInt256: Numeric {
     }
 
     public static func /(_ lhs: UInt256, _ rhs: UInt256) -> UInt256 {
-        let (result, _) = divisionWithModulo(lhs, rhs)
+        let (result, _) = divisionWithRemainder(lhs, rhs)
         return result
     }
 
@@ -119,29 +110,35 @@ extension UInt256: Numeric {
         lhs = lhs / rhs
     }
 
-    public static func divisionWithModulo(_ lhs: UInt256, _ rhs: UInt256) -> (UInt256, UInt256) {
+    public static func divisionWithRemainder(_ lhs: UInt256, _ rhs: UInt256) -> (UInt256, UInt256) {
         guard lhs > 0 && rhs > 1 else {
             return (0, 0)
         }
 
-        var result: UInt256 = 0
+        var quotient: UInt256 = 0
         var remainder: UInt256 = lhs
-        while remainder >= rhs {
-            var tmp: UInt256 = 1
-            var chunk: UInt256 = rhs
-            while remainder - chunk > chunk {
-                chunk = chunk << 1
-                tmp = tmp << 1
-            }
-            remainder -= chunk
-            result += tmp
+        var partial: UInt256 = 1
+        var chunk: UInt256 = rhs
+        var trail: [(UInt256, UInt256)] = [(1, rhs)]
+
+        while remainder - chunk > chunk {
+            chunk = chunk << 1
+            partial = partial << 1
+            trail.append((partial, chunk))
         }
 
-        return (result, remainder)
+        for (partial, chunk) in trail.reversed() {
+            if remainder >= chunk {
+                remainder -= chunk
+                quotient += partial
+            }
+        }
+
+        return (quotient, remainder)
     }
 
     public static func %(_ lhs: UInt256, _ rhs: UInt256) -> UInt256 {
-        let (_, result) = divisionWithModulo(lhs, rhs)
+        let (_, result) = divisionWithRemainder(lhs, rhs)
         return result
     }
     
