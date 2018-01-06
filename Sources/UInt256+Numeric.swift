@@ -70,31 +70,9 @@ extension UInt256: Numeric {
         lhs = lhs - rhs
     }
 
-    static func multiply(_ lhs: UInt256, byUInt64 rhs: UInt64) -> UInt256 {
-        guard lhs > 0 && rhs > 0 else {
-            return 0
-        }
-
-        var result: UInt256 = 0
-        for i in 0..<64 {
-            if (rhs >> i) & 0b1 == 1 {
-                result += lhs << i
-            }
-        }
-
-        return result
-    }
-
-    static func multiply(_ lhs: UInt256, _ rhs: UInt256) -> UInt256 {
-        var result: UInt256 = 0
-        for i in 0..<4 {
-            result += multiply(lhs << (64 * (3 - i)), byUInt64: rhs[i])
-        }
-        return result
-    }
-
     public static func *(_ lhs: UInt256, _ rhs: UInt256) -> UInt256 {
-        return multiply(lhs, rhs)
+        let (_, result) = karatsuba(lhs, rhs)
+        return result
     }
 
     public static func *=(_ lhs: inout UInt256, _ rhs: UInt256) {

@@ -51,7 +51,11 @@ extension UInt256: FixedWidthInteger {
     }
 
     public func multipliedReportingOverflow(by rhs: UInt256) -> (partialValue: UInt256, overflow: Bool) {
-        return (0, true) // TODO: implement this
+        let (high, low) = UInt256.karatsuba(self, rhs)
+        if high > 0 {
+            return (low, true)
+        }
+        return (low, false)
     }
 
     public func dividedReportingOverflow(by rhs: UInt256) -> (partialValue: UInt256, overflow: Bool) {
@@ -71,7 +75,7 @@ extension UInt256: FixedWidthInteger {
     }
 
     public func multipliedFullWidth(by other: UInt256) -> (high: UInt256, low: UInt256) {
-        return (0, 0) // TODO: impl
+        return UInt256.karatsuba(self, other)
     }
 
     public func dividingFullWidth(_ dividend: (high: UInt256, low: UInt256)) -> (quotient: UInt256, remainder: UInt256) {
