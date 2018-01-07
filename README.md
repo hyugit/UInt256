@@ -5,25 +5,22 @@
 [![Platform](https://img.shields.io/badge/platform-ios%20|%20macos-lightgrey.svg)](https://github.com/mryu87/UInt256)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-green.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![CocoaPods Compatible](https://img.shields.io/badge/CocoaPods-compatible-green.svg?style=flat)](https://cocoapods.org/)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 
 A UInt256 library written in Swift 4, **heavily influenced** by [CryptoCoinSwift/UInt256](https://github.com/CryptoCoinSwift/UInt256)
 
 ## Features
 
-The main struct UInt256 conforms to the following protocols: 
- - **FixedWidthInteger**: _Currently under development_
- - **UnsignedInteger**: this should be the top level protocol: see [here](https://github.com/apple/swift-evolution/blob/master/proposals/0104-improved-integers.md#proposed-solution)
- - **BinaryInteger**
- - **Numeric**
+The main struct UInt256 conforms strictly to the following protocols: 
+ - **FixedWidthInteger**, **UnsignedInteger**: these two should be the top level protocol: see [here](https://github.com/apple/swift-evolution/blob/master/proposals/0104-improved-integers.md#proposed-solution)
+ - **BinaryInteger**, **Numeric**, **Comparable**, and **Equatable** to provide all the basic operations
  - **CustomStringConvertible**
  - **Hashable**
- - **Comparable, Equatable**
  - etc (please see to the source code)
 
-A complete set of arithmetic operators are implemented, so are properties and functions
-commonly found on other UInt family members (`Uint64`, `UInt32`, `UInt16`, etc).
+This library includes a complete set of arithmetic operators, properties and
+functions that are commonly found on other UInt family members
+(`Uint64`, `UInt32`, `UInt16`, etc).
 
 The library itself can be installed as a Swift Package, a Carthage package or a CocoaPod.
 A playground is also included as a testbench.
@@ -110,11 +107,11 @@ the framework to your build target._
 
 ## TO DO
 
- - [ ] make UInt256 conform to FixedWidthInteger
+ - [x] make UInt256 conform to FixedWidthInteger
  - [x] add an example, preferably through a playground
  - [ ] add documentation
  - [x] add CocoaPods support
- - [ ] more tests, test coverage, corner cases, lint, code review
+ - [x] more tests, test coverage, corner cases, lint, code review
  - [x] automate build and test runs
  - [ ] benchmark
  - [x] karatsuba multiplication
