@@ -130,12 +130,6 @@ class UInt256ArithmeticTests: XCTestCase {
         XCTAssertEqual(k % l, 0)
     }
 
-    func generateRandomUInt64() -> UInt64 {
-        let x0 = UInt64(arc4random())
-        let x1 = UInt64(arc4random())
-        return x0 << 32 | x1
-    }
-
     func testDivision() {
         var a = UInt256.max
         XCTAssertEqual(a / UInt256(UInt64.max), UInt256([1, 1, 1, 1]))
@@ -153,14 +147,24 @@ class UInt256ArithmeticTests: XCTestCase {
         XCTAssertEqual(a % a, 0)
     }
     
+    func generateRandomUInt64() -> UInt64 {
+        let x0 = UInt64(arc4random())
+        let x1 = UInt64(arc4random())
+        return x0 << 32 | x1
+    }
+
+    func generateUInt256() -> UInt256 {
+        return UInt256([
+            generateRandomUInt64(),
+            generateRandomUInt64(),
+            generateRandomUInt64(),
+            generateRandomUInt64()
+        ])
+    }
+
     func testArithmetic() {
         for _ in 1..<10 {
-            let b = UInt256([
-                generateRandomUInt64(),
-                generateRandomUInt64(),
-                generateRandomUInt64(),
-                generateRandomUInt64()
-            ])
+            let b = generateUInt256()
             let c = UInt256([
                 0,
                 0,
@@ -173,11 +177,50 @@ class UInt256ArithmeticTests: XCTestCase {
         }
     }
 
-    func testKaratsuba() {
+    func testArithmetic1() {
+        for _ in 1..<10 {
+            let a = generateUInt256()
+            let b = generateUInt256()
+            let c = a.multipliedFullWidth(by: b)
+            let (q, _) = a.dividingFullWidth(c)
+            XCTAssertEqual(q, b)
+        }
+
+        // test maximum
         let a = UInt256.max
         let b = UInt256.max
         let (high, low) = UInt256.karatsuba(a, b)
         XCTAssertEqual(high, UInt256(-2))
         XCTAssertEqual(low, UInt256(1))
+        let (q, _) = a.dividingFullWidth((high: high, low: low))
+        XCTAssertEqual(q, b)
+    }
+    
+    func testFullWidthShift() {
+        let dividend = (high: UInt256(UInt64.max), low: UInt256())
+        let divisor =  UInt256(UInt64.max) << 1
+        let (q, _) = divisor.dividingFullWidth(dividend)
+        XCTAssertEqual(q, UInt256([0x8000000000000000, 0, 0, 0]))
+    }
+    
+    func testDividerWithRemainder() {
+        XCTAssertEqual(UInt256(1).dividedReportingOverflow(by: UInt256(0)).overflow, true)
+        XCTAssertEqual(UInt256(1).remainderReportingOverflow(dividingBy: UInt256(0)).overflow, true)
+        for _ in 1..<10 {
+            let a = generateUInt256()
+            let b = generateUInt256()
+            let (quotient, _) = a.dividedReportingOverflow(by: b)
+            let (remainder, _) = a.remainderReportingOverflow(dividingBy: b)
+            let (product, _) = quotient.multipliedReportingOverflow(by: b)
+            XCTAssertEqual(product + remainder, a)
+        }
+    }
+
+    func testDividerWithRemainder1() {
+        let a = UInt256([0, UInt64.max, 0, 0])
+        let b = UInt256(UInt64.max) << 1
+        let (quotient, remainder) = UInt256.divisionWithRemainder(a, b)
+        XCTAssertEqual(remainder, 0)
+        XCTAssertEqual(quotient, UInt256([0, 0, 0x8000000000000000, 0]))
     }
 }
