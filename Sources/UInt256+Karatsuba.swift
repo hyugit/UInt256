@@ -76,10 +76,10 @@ extension UInt256 {
         switch leadingZeroBitCount {
         case 0..<128:
             result = (
-                a_h: UInt256(Array(a[0...1])),
-                a_l: UInt256(Array(a[2...3])),
-                b_h: UInt256(Array(b[0...1])),
-                b_l: UInt256(Array(b[2...3])),
+                a_h: UInt256([0, 0, a[0], a[1]]),
+                a_l: UInt256([0, 0, a[2], a[3]]),
+                b_h: UInt256([0, 0, b[0], b[1]]),
+                b_l: UInt256([0, 0, b[2], b[3]]),
                 n_2: 128
             )
         case 128..<192:
@@ -91,7 +91,7 @@ extension UInt256 {
                 n_2: 64
             )
         default:
-            // Range is cool, but swift does not recognize open
+            // Range is cool, but switch doesn't recognize open
             // ranges, such as (192...) or (..<128), hence this
             // `default` case
             result = (0, a, 0, b, 64)

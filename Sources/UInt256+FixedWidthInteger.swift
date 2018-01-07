@@ -5,10 +5,10 @@ extension UInt256: FixedWidthInteger {
     public init(_truncatingBits: UInt) {
         var result: [UInt64] = []
         for i in 0..<4 {
-            let bits = _truncatingBits >> i * 64
+            let bits = _truncatingBits >> (i * 64)
             result.append(UInt64(_truncatingBits: bits))
         }
-        self.init(withUInt64Array: result)
+        self.init(withUInt64Array: result.reversed())
     }
 
     public var nonzeroBitCount: Int {

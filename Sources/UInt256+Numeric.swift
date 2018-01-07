@@ -99,7 +99,7 @@ extension UInt256: Numeric {
         var chunk: UInt256 = rhs
         var trail: [(UInt256, UInt256)] = [(1, rhs)]
 
-        while remainder - chunk > chunk {
+        while remainder - chunk >= chunk {
             chunk = chunk << 1
             partial = partial << 1
             trail.append((partial, chunk))
