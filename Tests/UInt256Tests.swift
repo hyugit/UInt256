@@ -30,6 +30,8 @@ class UInt256Tests: XCTestCase {
         XCTAssertEqual(a, UInt256.min)
         a = UInt256(truncatingIfNeeded: -1)
         XCTAssertEqual(a, UInt256([0, 0, 0, UInt64.max]))
+        a = UInt256(_truncatingBits: UInt.max)
+        XCTAssertEqual(a, UInt256([0, 0, 0, UInt64.max]))
 
         a = UInt256(exactly: 1)
         XCTAssertEqual(a, 1)
