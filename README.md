@@ -11,22 +11,13 @@ A UInt256 library written in Swift 4, **heavily influenced** by [CryptoCoinSwift
 
 ## Features
 
-The main struct UInt256 conforms strictly to the following protocols: 
- - **FixedWidthInteger**, **UnsignedInteger**: these two should be the top level protocol: see [here](https://github.com/apple/swift-evolution/blob/master/proposals/0104-improved-integers.md#proposed-solution)
- - **BinaryInteger**, **Numeric**, **Comparable**, and **Equatable** to provide all the basic operations
- - **CustomStringConvertible**
- - **Hashable**
- - etc (please see to the source code)
+This library provides a UInt256 struct that conforms nicely to Swift's `FixedWidthInteger` and `UnsignedInteger` protocols. 
 
-This library includes a complete set of arithmetic operators, properties and
-functions that are commonly found on other UInt family members
-(`Uint64`, `UInt32`, `UInt16`, etc).
+It supports a complete set of arithmetic operations, as well as properties and functions that are common to other UInt family members such as `UInt64`, `UInt32`, `UInt8`, etc. The library leverages [Karatsuba fast multiplication](https://en.wikipedia.org/wiki/Karatsuba_algorithm) algorithm and other efficient/fast algos for other operators. Other features include integer literal representation (`ExpressibleByIntegerLiteral`), default description (`CustomStringConvertible`) and `Hashable`.
 
-The library itself can be installed as a Swift Package, a Carthage package or a CocoaPod.
-A playground is also included as a testbench.
+The library is written in **Swift 4**. It can be installed as a **Swift Package**, a **Carthage package** or a **CocoaPod**. And a playground is also included as a testbench.
 
-Other features such as fast multiplication are in the development pipeline.
-Please feel free to submit new feature request by opening issues here on GitHub. :smiley:
+Please feel free to submit new feature requests and report issues here on GitHub. :smiley:
 
 ## Requirements
 
@@ -107,16 +98,24 @@ the framework to your build target._
 
 ## TO DO
 
+ - [ ] add documentation
+ - [ ] benchmark
  - [x] make UInt256 conform to FixedWidthInteger
  - [x] add an example, preferably through a playground
- - [ ] add documentation
  - [x] add CocoaPods support
  - [x] more tests, test coverage, corner cases, lint, code review
  - [x] automate build and test runs
- - [ ] benchmark
  - [x] karatsuba multiplication
- - [ ] fast modulo, division, and other algos
+ - [x] fast modulo, division, and other algos
 
+## Swift Protocol Conformance
+
+The main struct UInt256 conforms strictly to the following protocols: 
+ - **FixedWidthInteger**, **UnsignedInteger**: these two should be the top level protocol: see [here](https://github.com/apple/swift-evolution/blob/master/proposals/0104-improved-integers.md#proposed-solution)
+ - **BinaryInteger**, **Numeric**, **Comparable**, and **Equatable** to provide all the basic operations
+ - **CustomStringConvertible**
+ - **Hashable**
+ 
 ## License
 
 This library is released under the MIT license. Please see [LICENSE](https://github.com/mryu87/UInt256/blob/master/LICENSE)
