@@ -11,7 +11,7 @@ A UInt256 library written in Swift 4, **heavily influenced** by [CryptoCoinSwift
 
 ## Features
 
-This library provides a UInt256 struct that conforms nicely to Swift's `FixedWidthInteger` and `UnsignedInteger` protocols. 
+This library provides a UInt256 struct that conforms nicely to Swift's **FixedWidthInteger** and **UnsignedInteger** protocols. According to Apple, these two should be the top level protocol: see [here](https://github.com/apple/swift-evolution/blob/master/proposals/0104-improved-integers.md#proposed-solution)
 
 It supports a complete set of arithmetic operations, as well as properties and functions that are common to other UInt family members such as `UInt64`, `UInt32`, `UInt8`, etc. The library leverages [Karatsuba fast multiplication](https://en.wikipedia.org/wiki/Karatsuba_algorithm) algorithm and other efficient/fast algos for other operators. Other features include integer literal representation (`ExpressibleByIntegerLiteral`), default description (`CustomStringConvertible`) and `Hashable`.
 
@@ -19,6 +19,18 @@ The library is written in **Swift 4**. It can be installed as a **Swift Package*
 
 Please feel free to submit new feature requests and report issues here on GitHub. :smiley:
 
+## Swift Protocol Conformance
+
+The main struct UInt256 conforms strictly to the following protocols: 
+ - **FixedWidthInteger**
+ - **UnsignedInteger**
+ - **BinaryInteger**
+ - **Numeric**
+ - **Comparable**
+ - **Equatable**
+ - **CustomStringConvertible**
+ - **Hashable**
+ 
 ## Requirements
 
  - iOS 8.0+ / macOS 10.10+
@@ -108,14 +120,6 @@ the framework to your build target._
  - [x] karatsuba multiplication
  - [x] fast modulo, division, and other algos
 
-## Swift Protocol Conformance
-
-The main struct UInt256 conforms strictly to the following protocols: 
- - **FixedWidthInteger**, **UnsignedInteger**: these two should be the top level protocol: see [here](https://github.com/apple/swift-evolution/blob/master/proposals/0104-improved-integers.md#proposed-solution)
- - **BinaryInteger**, **Numeric**, **Comparable**, and **Equatable** to provide all the basic operations
- - **CustomStringConvertible**
- - **Hashable**
- 
 ## License
 
 This library is released under the MIT license. Please see [LICENSE](https://github.com/mryu87/UInt256/blob/master/LICENSE)
