@@ -2,14 +2,15 @@
 
 import Foundation
 
-public func arc4random_uniform(_ upperBound: UInt8) -> UInt8 {
-    let result = arc4random_uniform(UInt32(upperBound))
-    return UInt8(truncatingIfNeeded: result)
-}
+public func arc4random_uniform<T>(_ upperBound: T) -> T where T: FixedWidthInteger & UnsignedInteger {
+    if upperBound.bitWidth <= 64 {
+        let result = arc4random_uniform(UInt64(truncatingIfNeeded: upperBound))
+        return T(result)
+    }
 
-public func arc4random_uniform(_ upperBound: UInt16) -> UInt16 {
-    let result = arc4random_uniform(UInt32(upperBound))
-    return UInt16(truncatingIfNeeded: result)
+    // for the sake of this library, treat it as UInt256
+    let result = arc4random_uniform(upperBound as! UInt256)
+    return T(result)
 }
 
 public func arc4random_uniform(_ upperBound: UInt64) -> UInt64 {
