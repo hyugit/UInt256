@@ -116,4 +116,16 @@ class UInt256Tests: XCTestCase {
         ffffffffffffffff
         """)
     }
+
+    func testRandom() {
+        var a = UInt256.min + 2
+        for _ in 0..<50 {
+            XCTAssertLessThan(arc4random_uniform(a), a)
+        }
+
+        a = UInt256([0, 0, 1, 0])
+        for _ in 0..<50 {
+            XCTAssertLessThan(arc4random_uniform(a), a)
+        }
+    }
 }
