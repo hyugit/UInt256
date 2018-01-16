@@ -116,9 +116,4 @@ class UInt256Tests: XCTestCase {
         ffffffffffffffff
         """)
     }
-
-    static var allTests = [
-        ("testInit", testInit),
-        ("testEqual", testEqual),
-    ]
 }
