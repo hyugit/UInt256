@@ -127,5 +127,20 @@ class UInt256Tests: XCTestCase {
         for _ in 0..<50 {
             XCTAssertLessThan(arc4random_uniform(a), a)
         }
+
+        a = arc4random256()
+        XCTAssertNotNil(a)
+
+        var upperBound = 0 as UInt64
+        for _ in 0..<64 {
+            upperBound <<= 1
+            upperBound += 1
+            let a = arc4random_uniform(upperBound)
+            XCTAssertLessThan(a, upperBound)
+        }
+
+        let uBound16 = UInt16(UInt8.max << 4)
+        let random16 = arc4random_uniform(uBound16)
+        XCTAssertLessThan(random16, uBound16)
     }
 }
