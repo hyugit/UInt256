@@ -5,7 +5,7 @@ import Foundation
 public func arc4random_uniform<T>(_ upperBound: T) -> T where T: FixedWidthInteger & UnsignedInteger {
     if upperBound.bitWidth <= 64 {
         let result = arc4random_uniform(UInt64(truncatingIfNeeded: upperBound))
-        return T(result)
+        return T(truncatingIfNeeded: result)
     }
 
     // for the sake of this library, treat it as UInt256
@@ -22,7 +22,14 @@ public func arc4random_uniform(_ upperBound: UInt64) -> UInt64 {
     }
 
     func generateRandom(within highBits: UInt32) -> UInt64 {
-        let high: UInt32 = arc4random_uniform(highBits + 1)
+        var highBound: UInt32
+
+        if highBits == UInt32.max {
+            highBound = highBits
+        } else {
+            highBound = highBits + 1
+        }
+        let high: UInt32 = arc4random_uniform(highBound)
         let low: UInt32 = arc4random_uniform(UInt32.max)
         let result: UInt64 = UInt64(high) << 32 + UInt64(low)
         return result
