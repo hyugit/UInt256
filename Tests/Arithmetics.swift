@@ -270,4 +270,11 @@ class UInt256ArithmeticTests: XCTestCase {
         XCTAssertEqual(remainder, 0)
         XCTAssertEqual(quotient, UInt256([0, 0, 0x8000000000000000, 0]))
     }
+
+    func testBigIntModulo() {
+        let a = UInt256([0xFFFFFFFFFFFFFFFF, 0xFFFFFFFFFFFFFFFF, 0xFFFFFFFFFFFFFFFF, 0xFFFFFFFEFFFFFC2F])
+        let b = UInt256([0xFFFFFFFFFFFFFFFF, 0xFFFFFFFFFFFFFFFF, 0xFFFFFFFFFFFFFFFF, 0xFFFFFFFEFFFFFC2D])
+        XCTAssertEqual(a % a, 0)
+        XCTAssertEqual(b % a, b)
+    }
 }

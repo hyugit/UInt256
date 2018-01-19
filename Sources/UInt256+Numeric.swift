@@ -93,6 +93,10 @@ extension UInt256: Numeric {
             return (0, 0)
         }
 
+        guard lhs >= rhs else {
+            return (0, lhs)
+        }
+
         var quotient: UInt256 = 0
         var remainder: UInt256 = lhs
         var partial: UInt256 = 1
