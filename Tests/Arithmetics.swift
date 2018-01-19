@@ -185,7 +185,9 @@ class UInt256ArithmeticTests: XCTestCase {
             let (q, _) = a.dividingFullWidth(c)
             XCTAssertEqual(q, b)
         }
+    }
 
+    func testMaxArith() {
         // test maximum
         let a = UInt256.max
         let b = UInt256.max
@@ -195,7 +197,52 @@ class UInt256ArithmeticTests: XCTestCase {
         let (q, _) = a.dividingFullWidth((high: high, low: low))
         XCTAssertEqual(q, b)
     }
-    
+
+    func testMultiplication1() {
+        let (a, b, h, l) = (
+            a: UInt256([0xde7b0104807b1f40, 0x2c6ac9b8ead87a05, 0x743419685d3c3f73, 0x0663a1ee55b68583]),
+            b: UInt256([0x318690dfe2ea68f0, 0xf063fe3c31f3eb56, 0x7955ef26c4acef56, 0x7dcaff8b493920b4]),
+            h: UInt256([0x2b0a7d7c27df8b27, 0x151b246866abaeab, 0x539c45991fe931de, 0x9b980f5df8606458]),
+            l: UInt256([0xa13fc3ef37e7dd8c, 0x0c594aacb3c599e7, 0x4f10ec6e12030f0a, 0xa043c3222a31401c])
+        )
+        let (hi, lo) = a.multipliedFullWidth(by: b)
+        XCTAssertEqual(hi, h)
+        XCTAssertEqual(lo, l)
+        let (q, r) = b.dividingFullWidth((hi, lo))
+        XCTAssertEqual(q, a)
+        XCTAssertEqual(r, 0)
+    }
+
+    func testMultiplication2() {
+        let (a, b, h, l) = (
+            a: UInt256([0x51120fdc30a3aef9, 0x42196576fd405f95, 0x19916bda5dc6eb36, 0xe71fb9610ba310f4]),
+            b: UInt256([0x313545048badf055, 0x43a80c3305ebbf23, 0xb90f5b7b356e0c65, 0xf623a82a05ff0179]),
+            h: UInt256([0x0f9553a1bcafe2db, 0x0579d895e304e480, 0xa3acecd68b9f4dd1, 0xb2e6783ef03a8971]),
+            l: UInt256([0x894701e4f948c979, 0xd59366a3f087bd8e, 0x7d15281dd76cbe7b, 0x9fd9aeb4ca2ff754])
+        )
+        let (hi, lo) = a.multipliedFullWidth(by: b)
+        XCTAssertEqual(hi, h)
+        XCTAssertEqual(lo, l)
+        let (q, r) = b.dividingFullWidth((hi, lo))
+        XCTAssertEqual(q, a)
+        XCTAssertEqual(r, 0)
+    }
+
+    func testMultiplication3() {
+        let (a, b, h, l) = (
+            a: UInt256([0x9470419cdfc164a1, 0xbc9e6cbe3e2ab1c6, 0x8d384ae1d5a02075, 0xad0bc6cc3f9046a7]),
+            b: UInt256([0x8b54f37502956e0d, 0x49d78ea34cecba95, 0xd79e60615c086c72, 0xb2f01eae61e3a8a4]),
+            h: UInt256([0x50ca35a01c0cd7d9, 0x0727e823a680f014, 0x63b9be8290d53023, 0x38910b3572b9006e]),
+            l: UInt256([0x66afca0af8f12dee, 0xe9578fac42753a68, 0x494078a1170ccdbd, 0xb81b03c553dfdafc])
+        )
+        let (hi, lo) = a.multipliedFullWidth(by: b)
+        XCTAssertEqual(hi, h)
+        XCTAssertEqual(lo, l)
+        let (q, r) = b.dividingFullWidth((hi, lo))
+        XCTAssertEqual(q, a)
+        XCTAssertEqual(r, 0)
+    }
+
     func testFullWidthShift() {
         let dividend = (high: UInt256(UInt64.max), low: UInt256())
         let divisor =  UInt256(UInt64.max) << 1
