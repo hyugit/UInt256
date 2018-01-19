@@ -108,7 +108,7 @@ extension UInt256: BinaryInteger {
         }
         let modulus = Int(rhs[3] & 0x00ff)
         let remainder = modulus % 64
-        let multiple = (modulus - remainder) / 64
+        let multiple = modulus / 64
 
         var result: [UInt64] = []
         for _ in 0..<multiple {

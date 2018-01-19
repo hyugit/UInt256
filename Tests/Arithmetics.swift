@@ -187,7 +187,39 @@ class UInt256ArithmeticTests: XCTestCase {
         }
     }
 
-    func testMaxArith() {
+    func testSimpleFullWidthDivision() {
+        let hi = UInt256(1)
+        var lo = UInt256(0)
+        let a = UInt256([0x8000000000000000, 0, 0, 1])
+        var (q, r) = a.dividingFullWidth((hi, lo))
+        XCTAssertEqual(q, 1)
+        XCTAssertEqual(r, UInt256([0x7fffffffffffffff, UInt64.max, UInt64.max, UInt64.max]))
+
+        lo = UInt256(2)
+        (q, r) = a.dividingFullWidth((hi, lo))
+        XCTAssertEqual(q, 2)
+        XCTAssertEqual(r, 0)
+    }
+
+    func testSimpleFullWidthDivision1() {
+        let hi = UInt256(1)
+        let lo = UInt256(2)
+        let a = UInt256([0x8000000000000000, 0, 0, 0])
+        let (q, r) = a.dividingFullWidth((hi, lo))
+        XCTAssertEqual(q, 2)
+        XCTAssertEqual(r, 2)
+    }
+
+    func testSimpleFullWidthDivision2() {
+        let hi = UInt256(1)
+        let lo = UInt256(3)
+        let a = UInt256([0x8000000000000000, 0, 0, 0])
+        let (q, r) = a.dividingFullWidth((hi, lo + a))
+        XCTAssertEqual(q, 3)
+        XCTAssertEqual(r, 3)
+    }
+
+    func testMaxArithmetic() {
         // test maximum
         let a = UInt256.max
         let b = UInt256.max
