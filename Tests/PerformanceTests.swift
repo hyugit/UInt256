@@ -35,4 +35,13 @@ class PerformanceTests: XCTestCase {
             }
         }
     }
+
+    func testDivideAndConquerPerf() {
+        self.measure {
+            let hi = arc4random256()
+            let lo = arc4random256()
+            let a = arc4random256()
+            let _ = UInt256.divideAndConquer((hi, lo), by: a)
+        }
+    }
 }
