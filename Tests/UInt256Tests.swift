@@ -118,29 +118,22 @@ class UInt256Tests: XCTestCase {
     }
 
     func testRandom() {
-        var a = UInt256.min + 2
-        for _ in 0..<50 {
-            XCTAssertLessThan(arc4random_uniform(a), a)
-        }
-
-        a = UInt256([0, 0, 1, 0])
-        for _ in 0..<50 {
-            XCTAssertLessThan(arc4random_uniform(a), a)
-        }
-
-        a = arc4random256()
-        XCTAssertNotNil(a)
-
-        var upperBound = 0 as UInt64
-        for _ in 0..<64 {
+        XCTAssertEqual(arc4random_uniform(UInt256.min), 0)
+        XCTAssertEqual(arc4random_uniform(UInt256.min + 1), 0)
+        var upperBound = UInt256([0, 0, 0, UInt64(UInt16.max)]) as UInt256
+        for _ in 16..<255 {
             upperBound <<= 1
             upperBound += 1
-            let a = arc4random_uniform(upperBound)
-            XCTAssertLessThan(a, upperBound)
+            for _ in 0..<100 {
+                let a = arc4random_uniform(upperBound - UInt256([0, 0, 0, UInt64(UInt16.max)])) + UInt256([0, 0, 0, UInt64(UInt16.max)])
+                XCTAssertLessThan(a, upperBound)
+                XCTAssertLessThan(UInt256([0, 0, 0, UInt64(UInt16.max)]), a)
+            }
         }
 
         let uBound16 = UInt16(UInt8.max << 4)
-        let random16 = arc4random_uniform(uBound16)
-        XCTAssertLessThan(random16, uBound16)
+        let random16 = arc4random_uniform(uBound16) + UInt16(UInt8.max)
+        XCTAssertLessThan(random16, uBound16 + UInt16(UInt8.max))
+        XCTAssertLessThan(UInt16(UInt8.max), random16)
     }
 }
