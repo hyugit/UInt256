@@ -79,6 +79,11 @@ extension UInt256: FixedWidthInteger {
     }
 
     public func dividingFullWidth(_ dividend: (high: UInt256, low: UInt256)) -> (quotient: UInt256, remainder: UInt256) {
-        return UInt256.divideAndConquer(dividend, by: self)
+        // the divisor needs to be `normalized` before applying divide and conquer algo
+        let count = self.leadingZeroBitCount
+        let (q1, r1) = UInt256.divideAndConquer(dividend, by: (self << count))
+        let (q0, r0) = UInt256.divisionWithRemainder(r1, self)
+        let quotient = q1 << count + q0
+        return (quotient, r0)
     }
 }
