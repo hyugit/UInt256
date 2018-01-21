@@ -13,7 +13,11 @@ extension UInt256 {
 
     public static func karatsuba(_ lhs: UInt256, _ rhs: UInt256) -> (high: UInt256, low: UInt256) {
 
-        if lhs.leadingZeroBitCount >= 192 && rhs.leadingZeroBitCount >= 192 {
+        guard lhs > 0 && rhs > 0 else {
+            return (0, 0)
+        }
+
+        guard lhs.leadingZeroBitCount < 192 || rhs.leadingZeroBitCount < 192 else {
             let (high: low2, low: low3) = lhs[3].multipliedFullWidth(by: rhs[3])
             return (high: 0, low: UInt256([low2, low3]))
         }
@@ -25,20 +29,10 @@ extension UInt256 {
         let (part_over, part_w) = karatsuba(a_h + a_l, b_h + b_l)
 
         let (w_u, subtractionOverflow_u) = part_w.subtractingReportingOverflow(u)
-        let overflow_w_u: UInt256
-        if subtractionOverflow_u {
-            overflow_w_u = part_over - 1
-        } else {
-            overflow_w_u = part_over
-        }
+        let overflow_w_u: UInt256 = subtractionOverflow_u ? part_over - 1 : part_over
 
         let (w, subtractionOverflow) = w_u.subtractingReportingOverflow(v)
-        let overflow_w: UInt256
-        if subtractionOverflow {
-            overflow_w = overflow_w_u - 1
-        } else {
-            overflow_w = overflow_w_u
-        }
+        let overflow_w: UInt256 = subtractionOverflow ? overflow_w_u - 1 : overflow_w_u
 
         var high: UInt256 = 0
         var low: UInt256 = 0

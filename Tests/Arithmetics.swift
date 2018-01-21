@@ -178,12 +178,14 @@ class UInt256ArithmeticTests: XCTestCase {
     }
 
     func testArithmetic1() {
-        for _ in 1..<10 {
+        for _ in 1..<50 {
             let a = generateUInt256()
             let b = generateUInt256()
             let c = a.multipliedFullWidth(by: b)
-            let (q, _) = a.dividingFullWidth(c)
+            print("\(a) times \(b) equals \(c)")
+            let (q, r) = a.dividingFullWidth(c)
             XCTAssertEqual(q, b)
+            XCTAssertEqual(r, 0)
         }
     }
 
@@ -230,6 +232,7 @@ class UInt256ArithmeticTests: XCTestCase {
         XCTAssertEqual(q, b)
     }
 
+    /// the following multiplication tests are generated randomly
     func testMultiplication1() {
         let (a, b, h, l) = (
             a: UInt256([0xde7b0104807b1f40, 0x2c6ac9b8ead87a05, 0x743419685d3c3f73, 0x0663a1ee55b68583]),
@@ -275,7 +278,52 @@ class UInt256ArithmeticTests: XCTestCase {
         XCTAssertEqual(r, 0)
     }
 
-    func testFullWidthShift() {
+    func testMultiplication4() {
+        let (a, b, h, l) = (
+            a: UInt256([0x3a7cde0c848cb429, 0xb3234c0a80547382, 0x55cc7e86e93dabb6, 0x28dee13a766b9aed]),
+            b: UInt256([0x000aba3baca1389d, 0xfcc252dc1ce06704, 0x0c388570c1098d9e, 0x86c0c2c073f5d072]),
+            h: UInt256([0x0002736d080a2d57, 0x48c8f17d2c12de47, 0x4aaf5ff893c9d9c2, 0x621b6d1ae50ddf46]),
+            l: UInt256([0x99c31fb9279e6283, 0xb014a8f3495e108b, 0x8a806df6b06b3976, 0xb6414393e59c8d8a])
+        )
+        let (hi, lo) = a.multipliedFullWidth(by: b)
+        XCTAssertEqual(hi, h)
+        XCTAssertEqual(lo, l)
+        let (q, r) = b.dividingFullWidth((hi, lo))
+        XCTAssertEqual(q, a)
+        XCTAssertEqual(r, 0)
+    }
+
+    func testMultiplication5() {
+        let (a, b, h, l) = (
+            a: UInt256([0x6e43798e2e1ef38e, 0x668b891183e734a8, 0xe3ee738dca4300c5, 0x75a15cca018cb882]),
+            b: UInt256([0x1f6b6d99eab0309c, 0x1e32d5416109a0c1, 0xd63d07b3d8a50fca, 0x7b83b21df67aeba8]),
+            h: UInt256([0x0d8871210c2dc67a, 0x35f57c2854732d99, 0x290f9a543fb59a7c, 0xdb3aec6fd4699086]),
+            l: UInt256([0x472cd4b3f13abc51, 0xdc6e808430e2a128, 0xa5dd39777e5d76d3, 0x8d9595140bac6b50])
+        )
+        let (hi, lo) = a.multipliedFullWidth(by: b)
+        XCTAssertEqual(hi, h)
+        XCTAssertEqual(lo, l)
+        let (q, r) = b.dividingFullWidth((hi, lo))
+        XCTAssertEqual(q, a)
+        XCTAssertEqual(r, 0)
+    }
+
+    func testMultiplication6() {
+        let (a, b, h, l) = (
+            a: UInt256([0x4e0dea1848328ac1, 0x0b6f50d5416e39de, 0xf2f4c0544ec5bd7b, 0xab8306f4b613e1b0]),
+            b: UInt256([0x2e8d5743927b4c81, 0x9789500fcb1af33a, 0xeac4aff5a4b7eeb8, 0x481076e0cf057b89]),
+            h: UInt256([0x0e319855a134e52e, 0x2650fa44933aaf7e, 0x22de78bd54e5326d, 0xa8497228b20e6c02]),
+            l: UInt256([0x5a1cfb544a711c01, 0xcbf47561f8f1d895, 0x9454efd9063dd009, 0xd5e48851b6835730])
+        )
+        let (hi, lo) = a.multipliedFullWidth(by: b)
+        XCTAssertEqual(hi, h)
+        XCTAssertEqual(lo, l)
+        let (q, r) = b.dividingFullWidth((hi, lo))
+        XCTAssertEqual(q, a)
+        XCTAssertEqual(r, 0)
+    }
+
+    func testDivisionShifted() {
         let dividend = (high: UInt256(UInt64.max), low: UInt256())
         let divisor =  UInt256(UInt64.max) << 1
         let (q, _) = divisor.dividingFullWidth(dividend)
