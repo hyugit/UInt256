@@ -21,9 +21,9 @@
 				<key>com.apple.XCTPerformanceMetric_WallClockTime</key>
 				<dict>
 					<key>baselineAverage</key>
-					<real>0.027022</real>
+					<real>0.029935</real>
 					<key>baselineIntegrationDisplayName</key>
-					<string>Jan 19, 2018, 10:16:34 AM</string>
+					<string>Jan 19, 2018, 9:55:17 PM</string>
 				</dict>
 			</dict>
 			<key>testFullWidthDivisionPerformace()</key>
@@ -31,9 +31,9 @@
 				<key>com.apple.XCTPerformanceMetric_WallClockTime</key>
 				<dict>
 					<key>baselineAverage</key>
-					<real>9.8853</real>
+					<real>5.4657</real>
 					<key>baselineIntegrationDisplayName</key>
-					<string>Jan 19, 2018, 10:16:34 AM</string>
+					<string>Jan 20, 2018, 8:29:23 PM</string>
 				</dict>
 			</dict>
 			<key>testFullWidthMultiplicationPerformance()</key>
