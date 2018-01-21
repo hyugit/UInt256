@@ -28,6 +28,8 @@
 		63650A401FF85FE50065405F /* UInt256+Numeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F035E98CEFCC0896AF02286 /* UInt256+Numeric.swift */; };
 		63650A411FF85FE50065405F /* UInt256+BinaryInteger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F035264CA1ECAAAE59E0F45 /* UInt256+BinaryInteger.swift */; };
 		63650A421FF85FE90065405F /* UInt256.h in Headers */ = {isa = PBXBuildFile; fileRef = 636509E41FF859640065405F /* UInt256.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		636EA8E220131E07006A60DA /* UInt256+Divide&Conquer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636EA8E120131E07006A60DA /* UInt256+Divide&Conquer.swift */; };
+		636EA8E320131E07006A60DA /* UInt256+Divide&Conquer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636EA8E120131E07006A60DA /* UInt256+Divide&Conquer.swift */; };
 		638DCAD3200D9EC00041C75A /* UInt256+arc4random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638DCAD2200D9EC00041C75A /* UInt256+arc4random.swift */; };
 		638DCAD4200D9EC00041C75A /* UInt256+arc4random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638DCAD2200D9EC00041C75A /* UInt256+arc4random.swift */; };
 		63ADD5AF1FF7FAB40081AF93 /* Arithmetics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0351EAC2C66F0799530F3A /* Arithmetics.swift */; };
@@ -68,6 +70,7 @@
 		636509E41FF859640065405F /* UInt256.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UInt256.h; sourceTree = "<group>"; };
 		636509E51FF859640065405F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63650A311FF85F960065405F /* UInt256.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UInt256.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		636EA8E120131E07006A60DA /* UInt256+Divide&Conquer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt256+Divide&Conquer.swift"; sourceTree = "<group>"; };
 		638DCAD2200D9EC00041C75A /* UInt256+arc4random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt256+arc4random.swift"; sourceTree = "<group>"; };
 		63C63F781FF9E2F00096F3CD /* UInt256Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = UInt256Playground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		63E9AE6C200014870009BE90 /* UInt256+Karatsuba.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt256+Karatsuba.swift"; sourceTree = "<group>"; };
@@ -117,6 +120,7 @@
 				5F035264CA1ECAAAE59E0F45 /* UInt256+BinaryInteger.swift */,
 				63FCC6771FF956ED0073BF65 /* UInt256+FixedWidthInteger.swift */,
 				63E9AE6C200014870009BE90 /* UInt256+Karatsuba.swift */,
+				636EA8E120131E07006A60DA /* UInt256+Divide&Conquer.swift */,
 				638DCAD2200D9EC00041C75A /* UInt256+arc4random.swift */,
 			);
 			path = Sources;
@@ -320,6 +324,7 @@
 				636509FA1FF85AF80065405F /* UInt256+Equatable.swift in Sources */,
 				636509FC1FF85AF80065405F /* UInt256+Comparable.swift in Sources */,
 				63FCC6791FF956ED0073BF65 /* UInt256+FixedWidthInteger.swift in Sources */,
+				636EA8E220131E07006A60DA /* UInt256+Divide&Conquer.swift in Sources */,
 				636509F91FF85AF80065405F /* UInt256.swift in Sources */,
 				63650A001FF85AF80065405F /* UInt256+Numeric.swift in Sources */,
 				636509FF1FF85AF80065405F /* UInt256+Hashable.swift in Sources */,
@@ -339,6 +344,7 @@
 				63650A3A1FF85FE50065405F /* UInt256+Equatable.swift in Sources */,
 				63650A3C1FF85FE50065405F /* UInt256+Comparable.swift in Sources */,
 				63FCC67A1FF956ED0073BF65 /* UInt256+FixedWidthInteger.swift in Sources */,
+				636EA8E320131E07006A60DA /* UInt256+Divide&Conquer.swift in Sources */,
 				63650A391FF85FE50065405F /* UInt256.swift in Sources */,
 				63650A401FF85FE50065405F /* UInt256+Numeric.swift in Sources */,
 				63650A3F1FF85FE50065405F /* UInt256+Hashable.swift in Sources */,
