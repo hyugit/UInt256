@@ -182,9 +182,8 @@ class UInt256ArithmeticTests: XCTestCase {
             let a = generateUInt256()
             let b = generateUInt256()
             let c = a.multipliedFullWidth(by: b)
-            print("\(a) times \(b) equals \(c)")
             let (q, r) = a.dividingFullWidth(c)
-            XCTAssertEqual(q, b)
+            XCTAssertEqual(q, b, "\(a) times \(b) equals \(c)")
             XCTAssertEqual(r, 0)
         }
     }
