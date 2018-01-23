@@ -4,11 +4,11 @@ import Foundation
 
 extension UInt256 {
     private typealias SplitResult = (
-        a_h: UInt256,
-        a_l: UInt256,
-        b_h: UInt256,
-        b_l: UInt256,
-        n_2: Int
+        aH: UInt256,
+        aL: UInt256,
+        bH: UInt256,
+        bL: UInt256,
+        N2: Int
     )
 
     public static func karatsuba(_ lhs: UInt256, _ rhs: UInt256) -> (high: UInt256, low: UInt256) {
@@ -22,42 +22,46 @@ extension UInt256 {
             return (high: 0, low: UInt256([low2, low3]))
         }
 
-        let (a_h, a_l, b_h, b_l, n_2) = splitOperands(a: lhs, b: rhs)
+        let (aH, aL, bH, bL, N2) = splitOperands(a: lhs, b: rhs)
 
-        let (_, u) = karatsuba(a_h, b_h)
-        let (_, v) = karatsuba(a_l, b_l)
-        let (part_over, part_w) = karatsuba(a_h + a_l, b_h + b_l)
+        let (_, u) = karatsuba(aH, bH)
+        let (_, v) = karatsuba(aL, bL)
+        var w = karatsuba(aH + aL, bH + bL)
+        var overflow = false
 
-        let (w_u, subtractionOverflow_u) = part_w.subtractingReportingOverflow(u)
-        let overflow_w_u: UInt256 = subtractionOverflow_u ? part_over - 1 : part_over
+        (w.low, overflow) = w.low.subtractingReportingOverflow(u)
+        if overflow {
+            w.high = w.high - 1
+        }
 
-        let (w, subtractionOverflow) = w_u.subtractingReportingOverflow(v)
-        let overflow_w: UInt256 = subtractionOverflow ? overflow_w_u - 1 : overflow_w_u
+        (w.low, overflow) = w.low.subtractingReportingOverflow(v)
+        if overflow {
+            w.high = w.high - 1
+        }
 
         var high: UInt256 = 0
         var low: UInt256 = 0
         var carry: Bool
 
-        switch n_2 {
+        switch N2 {
         case 128:
-            let w_h = UInt256([overflow_w[2], overflow_w[3], w[0], w[1]])
-            let w_l = UInt256([w[2], w[3], 0, 0])
+            let wH = UInt256([w.high[2], w.high[3], w.low[0], w.low[1]])
+            let wL = UInt256([w.low[2], w.low[3], 0, 0])
 
-            high = u + w_h
-            (low, carry) = v.addingReportingOverflow(w_l)
-
+            high = u + wH
+            (low, carry) = v.addingReportingOverflow(wL)
             if carry {
                 high += 1
             }
 
-        default: // n_2 == 64
-            let u_h = UInt256([u[2], u[3], 0, 0])
-            let w_m = UInt256([w[1], w[2], w[3], 0])
-            low = u_h + v
-            (low, carry) = low.addingReportingOverflow(w_m)
+        default: // N2 == 64
+            let uH = UInt256([u[2], u[3], 0, 0])
+            let wM = UInt256([w.low[1], w.low[2], w.low[3], 0])
+            low = uH + v
+            (low, carry) = low.addingReportingOverflow(wM)
         }
 
-        return (high: high, low: low)
+        return (high, low)
     }
 
     private static func splitOperands(a: UInt256, b: UInt256) -> SplitResult {
@@ -70,19 +74,19 @@ extension UInt256 {
         switch leadingZeroBitCount {
         case 0..<128:
             result = (
-                a_h: UInt256([0, 0, a[0], a[1]]),
-                a_l: UInt256([0, 0, a[2], a[3]]),
-                b_h: UInt256([0, 0, b[0], b[1]]),
-                b_l: UInt256([0, 0, b[2], b[3]]),
-                n_2: 128
+                aH: UInt256([0, 0, a[0], a[1]]),
+                aL: UInt256([0, 0, a[2], a[3]]),
+                bH: UInt256([0, 0, b[0], b[1]]),
+                bL: UInt256([0, 0, b[2], b[3]]),
+                N2: 128
             )
         case 128..<192:
             result = (
-                a_h: UInt256(a[2]),
-                a_l: UInt256(a[3]),
-                b_h: UInt256(b[2]),
-                b_l: UInt256(b[3]),
-                n_2: 64
+                aH: UInt256(a[2]),
+                aL: UInt256(a[3]),
+                bH: UInt256(b[2]),
+                bL: UInt256(b[3]),
+                N2: 64
             )
         default:
             // Range is cool, but switch doesn't recognize open
