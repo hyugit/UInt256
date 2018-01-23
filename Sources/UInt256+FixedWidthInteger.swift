@@ -86,4 +86,25 @@ extension UInt256: FixedWidthInteger {
         let quotient = q1 << count + q0
         return (quotient, r0)
     }
+
+    public func dividingFullWidth(
+        _ dividend: (high: UInt256, low: UInt256),
+        withPrecomputedInverse inv: (high: UInt256, low: UInt256)
+        )
+        -> (quotient: UInt256, remainder: UInt256)
+    {
+        // the divisor needs to be `normalized` before applying divide and conquer algo
+        let count = self.leadingZeroBitCount
+        let (q1, r1) = UInt256.barrettDivision(
+            of: dividend,
+            by: (self << count),
+            withPrecomputedInverse: (
+                high: inv.high >> count,
+                low: ((inv.low >> count) | (inv.high << (inv.high.bitWidth - count)))
+            )
+        )
+        let (q0, r0) = UInt256.divisionWithRemainder(r1, self)
+        let quotient = q1 << count + q0
+        return (quotient, r0)
+    }
 }

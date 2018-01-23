@@ -6,6 +6,16 @@
 	<dict>
 		<key>PerformanceTests</key>
 		<dict>
+			<key>testBarrettDivisionPerf()</key>
+			<dict>
+				<key>com.apple.XCTPerformanceMetric_WallClockTime</key>
+				<dict>
+					<key>baselineAverage</key>
+					<real>6.05</real>
+					<key>baselineIntegrationDisplayName</key>
+					<string>Local Baseline</string>
+				</dict>
+			</dict>
 			<key>testDivisionPerformace()</key>
 			<dict>
 				<key>com.apple.XCTPerformanceMetric_WallClockTime</key>
