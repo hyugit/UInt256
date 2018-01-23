@@ -36,12 +36,19 @@ class PerformanceTests: XCTestCase {
         }
     }
 
-    func testDivideAndConquerPerf() {
+    func testBarrettDivisionPerf() {
         self.measure {
-            let hi = arc4random256()
-            let lo = arc4random256()
-            let a = arc4random256()
-            let _ = UInt256.divideAndConquer((hi, lo), by: a)
+            for _ in 0..<1000 {
+                let hi = arc4random256()
+                let lo = arc4random256()
+                let a = arc4random256()
+                let (invH, rH) = UInt256.divisionWithRemainder(UInt256.max, a)
+                var (invL, rL) = a.dividingFullWidth((rH, UInt256.max))
+                if rL == a - 1 {
+                    invL = invL + 1
+                }
+                let (_, _) = a.dividingFullWidth((hi, lo), withPrecomputedInverse: (invH, invL))
+            }
         }
     }
 }

@@ -178,13 +178,28 @@ class UInt256ArithmeticTests: XCTestCase {
     }
 
     func testArithmetic1() {
-        for _ in 1..<50 {
+        for _ in 1..<500 {
             let a = generateUInt256()
             let b = generateUInt256()
+            let m = Swift.min(a, b)
+            let rem = arc4random_uniform(m)
             let c = a.multipliedFullWidth(by: b)
-            let (q, r) = a.dividingFullWidth(c)
-            XCTAssertEqual(q, b, "\(a) times \(b) equals \(c)")
-            XCTAssertEqual(r, 0)
+            let cL = c.low.addingReportingOverflow(rem)
+            var cH = c.high
+            if cL.overflow {
+                cH = cH + 1
+            }
+            let (q, r) = a.dividingFullWidth((cH, cL.partialValue))
+            XCTAssertEqual(q, b, "\(a) times \(b) equals (\(cH), \(cL))")
+            XCTAssertEqual(r, rem)
+            let (invH, rH) = UInt256.divisionWithRemainder(UInt256.max, a)
+            var (invL, rL) = a.dividingFullWidth((rH, UInt256.max))
+            if rL == a - 1 {
+                invL = invL + 1
+            }
+            let (q_, r_) = a.dividingFullWidth((cH, cL.partialValue), withPrecomputedInverse: (invH, invL))
+            XCTAssertEqual(q, q_, "\(c) divided by \(a) with inv (\(invH), \(invL))")
+            XCTAssertEqual(r, r_)
         }
     }
 
@@ -193,6 +208,14 @@ class UInt256ArithmeticTests: XCTestCase {
         var lo = UInt256(0)
         let a = UInt256([0x8000000000000000, 0, 0, 1])
         var (q, r) = a.dividingFullWidth((hi, lo))
+        XCTAssertEqual(q, 1)
+        XCTAssertEqual(r, UInt256([0x7fffffffffffffff, UInt64.max, UInt64.max, UInt64.max]))
+
+        let inv = (
+            high: UInt256(1),
+            low: UInt256(-4)
+        )
+        (q, r) = a.dividingFullWidth((hi, lo), withPrecomputedInverse: inv)
         XCTAssertEqual(q, 1)
         XCTAssertEqual(r, UInt256([0x7fffffffffffffff, UInt64.max, UInt64.max, UInt64.max]))
 
