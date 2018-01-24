@@ -11,11 +11,11 @@ A UInt256 library written in Swift 4, **inspired** by [CryptoCoinSwift/UInt256](
 
 ## Features
 
-This library provides a UInt256 struct that conforms nicely to Swift's **FixedWidthInteger** and **UnsignedInteger** protocols. According to Apple, the two are the top level protocol for an UInt family member to conform to: [here](https://github.com/apple/swift-evolution/blob/master/proposals/0104-improved-integers.md#proposed-solution)
+This library provides a UInt256 struct that conforms nicely to Swift's **FixedWidthInteger** and **UnsignedInteger** protocols. According to Apple, the two are the necessary top level protocols for an UInt member: [here](https://github.com/apple/swift-evolution/blob/master/proposals/0104-improved-integers.md#proposed-solution)
 
 It supports a complete set of arithmetic operations, as well as properties and functions that are common to other UInt family members such as `UInt64`, `UInt32`, `UInt8`, etc. The library leverages [Karatsuba fast multiplication](https://en.wikipedia.org/wiki/Karatsuba_algorithm) algorithm, [Divide and Conquer](http://bioinfo.ict.ac.cn/~dbu/AlgorithmCourses/Lectures/Hasselstrom2003.pdf) division algorithm, [Barrett Algorithm](https://members.loria.fr/PZimmermann/mca/mca-cup-0.5.9.pdf) for division and other efficient algos for other operators. Other features include integer literal representation (`ExpressibleByIntegerLiteral`), default description (`CustomStringConvertible`) and `Hashable`.
 
-The library is entirely written in **Swift 4**. It can be installed as a **Swift Package**, a **Carthage package** or a **CocoaPod**. And a playground is also included as a testbench.
+The library is written entirely in **Swift 4**. It can be installed as a **Swift Package**, a **Carthage package** or a **CocoaPod**. And a playground is also included as a testbench.
 
 Please feel free to submit new feature requests and report issues here on GitHub. :smiley:
 
