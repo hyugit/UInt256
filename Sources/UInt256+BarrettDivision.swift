@@ -4,7 +4,7 @@ import Foundation
 
 extension UInt256: FixedWidthIntegerWithBarrettDivision {
 
-    public func dividingFullWidthFast(
+    public func dividingFullWidth(
         _ dividend: (high: UInt256, low: UInt256),
         withPrecomputedInverse inv: (high: UInt256, low: UInt256)
         )
