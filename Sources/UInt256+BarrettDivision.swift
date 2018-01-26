@@ -2,7 +2,7 @@
 
 import Foundation
 
-extension UInt256: FixedWidthIntegerWithBarrettDivision {
+extension UInt256 {
 
     public func dividingFullWidth(
         _ dividend: (high: UInt256, low: UInt256),
