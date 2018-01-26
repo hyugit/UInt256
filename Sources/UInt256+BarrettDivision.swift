@@ -21,6 +21,11 @@ extension FixedWidthIntegerWithBarrettDivision {
     }
 }
 
+extension UInt8: FixedWidthIntegerWithBarrettDivision {}
+extension UInt16: FixedWidthIntegerWithBarrettDivision {}
+extension UInt32: FixedWidthIntegerWithBarrettDivision {}
+extension UInt64: FixedWidthIntegerWithBarrettDivision {}
+
 extension UInt256: FixedWidthIntegerWithBarrettDivision {
 
     public func dividingFullWidth(
