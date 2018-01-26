@@ -32,8 +32,6 @@
 		636EA8E320131E07006A60DA /* UInt256+Divide&Conquer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636EA8E120131E07006A60DA /* UInt256+Divide&Conquer.swift */; };
 		636F8BF7201656B800F37750 /* UInt256+BarrettDivision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636F8BF6201656B800F37750 /* UInt256+BarrettDivision.swift */; };
 		636F8BF8201656B800F37750 /* UInt256+BarrettDivision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636F8BF6201656B800F37750 /* UInt256+BarrettDivision.swift */; };
-		638A1A902017EFF500342397 /* FixedWidthInteger+BarrettDivision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638A1A8F2017EFF500342397 /* FixedWidthInteger+BarrettDivision.swift */; };
-		638A1A912017EFF500342397 /* FixedWidthInteger+BarrettDivision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638A1A8F2017EFF500342397 /* FixedWidthInteger+BarrettDivision.swift */; };
 		638DCAD3200D9EC00041C75A /* UInt256+arc4random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638DCAD2200D9EC00041C75A /* UInt256+arc4random.swift */; };
 		638DCAD4200D9EC00041C75A /* UInt256+arc4random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638DCAD2200D9EC00041C75A /* UInt256+arc4random.swift */; };
 		63ADD5AF1FF7FAB40081AF93 /* Arithmetics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0351EAC2C66F0799530F3A /* Arithmetics.swift */; };
@@ -76,7 +74,6 @@
 		63650A311FF85F960065405F /* UInt256.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UInt256.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		636EA8E120131E07006A60DA /* UInt256+Divide&Conquer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt256+Divide&Conquer.swift"; sourceTree = "<group>"; };
 		636F8BF6201656B800F37750 /* UInt256+BarrettDivision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt256+BarrettDivision.swift"; sourceTree = "<group>"; };
-		638A1A8F2017EFF500342397 /* FixedWidthInteger+BarrettDivision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FixedWidthInteger+BarrettDivision.swift"; sourceTree = "<group>"; };
 		638DCAD2200D9EC00041C75A /* UInt256+arc4random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt256+arc4random.swift"; sourceTree = "<group>"; };
 		63C63F781FF9E2F00096F3CD /* UInt256Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = UInt256Playground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		63E9AE6C200014870009BE90 /* UInt256+Karatsuba.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt256+Karatsuba.swift"; sourceTree = "<group>"; };
@@ -129,7 +126,6 @@
 				636EA8E120131E07006A60DA /* UInt256+Divide&Conquer.swift */,
 				638DCAD2200D9EC00041C75A /* UInt256+arc4random.swift */,
 				636F8BF6201656B800F37750 /* UInt256+BarrettDivision.swift */,
-				638A1A8F2017EFF500342397 /* FixedWidthInteger+BarrettDivision.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -340,7 +336,6 @@
 				638DCAD3200D9EC00041C75A /* UInt256+arc4random.swift in Sources */,
 				636509FE1FF85AF80065405F /* UInt256+CustomStringConvertible.swift in Sources */,
 				636509FD1FF85AF80065405F /* UInt256+UnsignedInteger.swift in Sources */,
-				638A1A902017EFF500342397 /* FixedWidthInteger+BarrettDivision.swift in Sources */,
 				63E9AE6D200014870009BE90 /* UInt256+Karatsuba.swift in Sources */,
 				63650A011FF85AF80065405F /* UInt256+BinaryInteger.swift in Sources */,
 				636509FB1FF85AF80065405F /* UInt256+ExpressibleByIntegerLiteral.swift in Sources */,
@@ -362,7 +357,6 @@
 				638DCAD4200D9EC00041C75A /* UInt256+arc4random.swift in Sources */,
 				63650A3E1FF85FE50065405F /* UInt256+CustomStringConvertible.swift in Sources */,
 				63650A3D1FF85FE50065405F /* UInt256+UnsignedInteger.swift in Sources */,
-				638A1A912017EFF500342397 /* FixedWidthInteger+BarrettDivision.swift in Sources */,
 				63E9AE6E200014870009BE90 /* UInt256+Karatsuba.swift in Sources */,
 				63650A411FF85FE50065405F /* UInt256+BinaryInteger.swift in Sources */,
 				63650A3B1FF85FE50065405F /* UInt256+ExpressibleByIntegerLiteral.swift in Sources */,
