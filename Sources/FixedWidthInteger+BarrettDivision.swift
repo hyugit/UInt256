@@ -12,7 +12,7 @@ public protocol FixedWidthIntegerWithBarrettDivision: FixedWidthInteger {
 }
 
 extension FixedWidthInteger {
-    var delegate: FixedWidthIntegerBarrettDivisionDelegate? {
+    public var delegate: FixedWidthIntegerBarrettDivisionDelegate? {
         get {
             return nil
         }
