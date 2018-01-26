@@ -16,6 +16,8 @@ extension FixedWidthInteger {
         get {
             return nil
         }
+
+        set {}
     }
 
     public func dividingFullWidthBarrett(_ dividend: (high: Self, low: Self)) -> (quotient: Self, remainder: Self) {
