@@ -2,16 +2,29 @@
 
 import Foundation
 
-extension FixedWidthInteger {
-    public func dividingFullWidth(_ dividend: (high: Self, low: Self.Magnitude), withPrecomputedInverse: (high: Self, low: Self)) -> (quotient: Self, remainder: Self) {
+public protocol FixedWidthIntegerWithBarrettDivision: FixedWidthInteger {
+    func dividingFullWidth(
+        _ dividend: (high: Self, low: Self.Magnitude),
+        withPrecomputedInverse: (high: Self, low: Self)
+        )
+        -> (quotient: Self, remainder: Self)
+}
+
+extension FixedWidthIntegerWithBarrettDivision {
+    public func dividingFullWidth(
+        _ dividend: (high: Self, low: Self.Magnitude),
+        withPrecomputedInverse: (high: Self, low: Self)
+        )
+        -> (quotient: Self, remainder: Self)
+    {
         return self.dividingFullWidth(dividend)
     }
 }
 
-extension UInt256 {
+extension UInt256: FixedWidthIntegerWithBarrettDivision {
 
     public func dividingFullWidth(
-        _ dividend: (high: UInt256, low: UInt256),
+        _ dividend: (high: UInt256, low: UInt256.Magnitude),
         withPrecomputedInverse inv: (high: UInt256, low: UInt256)
         )
         -> (quotient: UInt256, remainder: UInt256)
