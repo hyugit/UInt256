@@ -3,10 +3,11 @@
 import Foundation
 
 public protocol FixedWidthIntegerBarrettDivisionDelegate {
-    var precomputedInverse: (high: Any, low: Any) { get }
+    var precomputedInverse: (high: Any, low: Any) { get set }
 }
 
 public protocol FixedWidthIntegerWithBarrettDivision: FixedWidthInteger {
+    var delegate: FixedWidthIntegerBarrettDivisionDelegate? { get set }
     func dividingFullWidthBarrett(_ dividend: (high: Self, low: Self)) -> (quotient: Self, remainder: Self)
     func dividingFullWidth(_ dividend: (high: Self, low: Self), withPrecomputedInverse: (high: Self, low: Self)) -> (quotient: Self, remainder: Self)
 }
