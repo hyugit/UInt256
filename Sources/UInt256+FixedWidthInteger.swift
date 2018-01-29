@@ -11,6 +11,24 @@ extension UInt256: FixedWidthInteger {
         self.init(withUInt64Array: result.reversed())
     }
 
+    public init(bigEndian: UInt256) {
+        self.init(bigEndian.parts)
+    }
+
+    public init(littleEndian: UInt256) {
+        let newParts = littleEndian.parts.reversed().map { $0.bigEndian }
+        self.init(newParts)
+    }
+
+    public var bigEndian: UInt256 {
+        return self
+    }
+
+    public var littleEndian: UInt256 {
+        let newParts = parts.reversed().map { $0.bigEndian }
+        return UInt256(newParts)
+    }
+
     public var nonzeroBitCount: Int {
         return parts[0].nonzeroBitCount
             + parts[1].nonzeroBitCount
