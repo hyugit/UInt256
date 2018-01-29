@@ -72,6 +72,22 @@ class UInt256BinaryOperationsTests: XCTestCase {
 
         // TODO: check the correctness of this test
         XCTAssertEqual(d.words, [0, 1, 0, 0])
+
+        let e = UInt256([
+            0x0123456789abcdef,
+            0x02468acf13579bde,
+            0xefcdab9078563412,
+            0x0
+        ])
+        XCTAssertEqual(e.bigEndian, e)
+        XCTAssertEqual(e.littleEndian, UInt256(littleEndian: e))
+        XCTAssertEqual(e.littleEndian, UInt256([
+            0x0,
+            0x1234567890abcdef,
+            0xde9b5713cf8a4602,
+            0xefcdab8967452301,
+        ]))
+        XCTAssertEqual(e, UInt256(bigEndian: e))
     }
 
     func testShift() {
