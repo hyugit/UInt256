@@ -36,6 +36,17 @@ class PerformanceTests: XCTestCase {
         }
     }
 
+    func testDivideAndConquerPerf() {
+        self.measure {
+            for _ in 0..<1000 {
+                let a = arc4random256()
+                let b = arc4random256()
+                let c = arc4random256()
+                let _ = a.dividingFullWidth((high: c, low: b))
+            }
+        }
+    }
+
     func testBarrettDivisionPerf() {
         self.measure {
             for _ in 0..<1000 {

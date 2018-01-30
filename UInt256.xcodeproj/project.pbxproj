@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		63123F5C2012602D00E3B19C /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63123F5B2012602D00E3B19C /* PerformanceTests.swift */; };
+		635175122020489400D81E20 /* UInt256Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0353CA2318ABFE778872BF /* UInt256Tests.swift */; };
+		635175132020489400D81E20 /* Arithmetics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0351EAC2C66F0799530F3A /* Arithmetics.swift */; };
+		635175142020489400D81E20 /* BinaryOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FE07E51FF80D4D005DAAEE /* BinaryOperations.swift */; };
 		636509F91FF85AF80065405F /* UInt256.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F035F24AA367283E3EE5D6F /* UInt256.swift */; };
 		636509FA1FF85AF80065405F /* UInt256+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F035F06AAC160550E9AED24 /* UInt256+Equatable.swift */; };
 		636509FB1FF85AF80065405F /* UInt256+ExpressibleByIntegerLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F035FECB76F1CC8BE630CD3 /* UInt256+ExpressibleByIntegerLiteral.swift */; };
@@ -32,6 +35,8 @@
 		636EA8E320131E07006A60DA /* UInt256+Divide&Conquer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636EA8E120131E07006A60DA /* UInt256+Divide&Conquer.swift */; };
 		636F8BF7201656B800F37750 /* UInt256+BarrettDivision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636F8BF6201656B800F37750 /* UInt256+BarrettDivision.swift */; };
 		636F8BF8201656B800F37750 /* UInt256+BarrettDivision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636F8BF6201656B800F37750 /* UInt256+BarrettDivision.swift */; };
+		637A1AC9202043C70013C247 /* UInt256.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63650A311FF85F960065405F /* UInt256.framework */; };
+		637A1ACF2020445C0013C247 /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63123F5B2012602D00E3B19C /* PerformanceTests.swift */; };
 		638DCAD3200D9EC00041C75A /* UInt256+arc4random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638DCAD2200D9EC00041C75A /* UInt256+arc4random.swift */; };
 		638DCAD4200D9EC00041C75A /* UInt256+arc4random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638DCAD2200D9EC00041C75A /* UInt256+arc4random.swift */; };
 		63ADD5AF1FF7FAB40081AF93 /* Arithmetics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0351EAC2C66F0799530F3A /* Arithmetics.swift */; };
@@ -45,6 +50,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		637A1ACA202043C70013C247 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5F035D9EC269F88501C37787 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 63650A301FF85F960065405F;
+			remoteInfo = "UInt256 macOS";
+		};
 		63C63F731FF9DD4A0096F3CD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5F035D9EC269F88501C37787 /* Project object */;
@@ -74,6 +86,7 @@
 		63650A311FF85F960065405F /* UInt256.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UInt256.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		636EA8E120131E07006A60DA /* UInt256+Divide&Conquer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt256+Divide&Conquer.swift"; sourceTree = "<group>"; };
 		636F8BF6201656B800F37750 /* UInt256+BarrettDivision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt256+BarrettDivision.swift"; sourceTree = "<group>"; };
+		637A1AC4202043C70013C247 /* UInt256Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UInt256Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		638DCAD2200D9EC00041C75A /* UInt256+arc4random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt256+arc4random.swift"; sourceTree = "<group>"; };
 		63C63F781FF9E2F00096F3CD /* UInt256Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = UInt256Playground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		63E9AE6C200014870009BE90 /* UInt256+Karatsuba.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt256+Karatsuba.swift"; sourceTree = "<group>"; };
@@ -101,6 +114,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		637A1AC1202043C70013C247 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				637A1AC9202043C70013C247 /* UInt256.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +157,7 @@
 				5F035FC15F3BCC0C1819E3C8 /* UInt256Tests.xctest */,
 				636509E21FF859640065405F /* UInt256.framework */,
 				63650A311FF85F960065405F /* UInt256.framework */,
+				637A1AC4202043C70013C247 /* UInt256Tests macOS.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -245,6 +267,24 @@
 			productReference = 63650A311FF85F960065405F /* UInt256.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		637A1AC3202043C70013C247 /* UInt256Tests macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 637A1ACE202043C70013C247 /* Build configuration list for PBXNativeTarget "UInt256Tests macOS" */;
+			buildPhases = (
+				637A1AC0202043C70013C247 /* Sources */,
+				637A1AC1202043C70013C247 /* Frameworks */,
+				637A1AC2202043C70013C247 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				637A1ACB202043C70013C247 /* PBXTargetDependency */,
+			);
+			name = "UInt256Tests macOS";
+			productName = "UInt256Tests macOS";
+			productReference = 637A1AC4202043C70013C247 /* UInt256Tests macOS.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -261,6 +301,10 @@
 						ProvisioningStyle = Automatic;
 					};
 					63650A301FF85F960065405F = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					637A1AC3202043C70013C247 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
@@ -281,6 +325,7 @@
 				5F035E642A3DD72A9413CD89 /* UInt256Tests */,
 				636509E11FF859640065405F /* UInt256 iOS */,
 				63650A301FF85F960065405F /* UInt256 macOS */,
+				637A1AC3202043C70013C247 /* UInt256Tests macOS */,
 			);
 		};
 /* End PBXProject section */
@@ -301,6 +346,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		63650A2F1FF85F960065405F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		637A1AC2202043C70013C247 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -363,9 +415,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		637A1AC0202043C70013C247 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				635175132020489400D81E20 /* Arithmetics.swift in Sources */,
+				637A1ACF2020445C0013C247 /* PerformanceTests.swift in Sources */,
+				635175142020489400D81E20 /* BinaryOperations.swift in Sources */,
+				635175122020489400D81E20 /* UInt256Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		637A1ACB202043C70013C247 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 63650A301FF85F960065405F /* UInt256 macOS */;
+			targetProxy = 637A1ACA202043C70013C247 /* PBXContainerItemProxy */;
+		};
 		63C63F741FF9DD4A0096F3CD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 636509E11FF859640065405F /* UInt256 iOS */;
@@ -704,6 +772,40 @@
 			};
 			name = Release;
 		};
+		637A1ACC202043C70013C247 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Sources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mryu87.UInt256Tests-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		637A1ACD202043C70013C247 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Sources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mryu87.UInt256Tests-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -739,6 +841,15 @@
 			buildConfigurations = (
 				63650A371FF85F960065405F /* Debug */,
 				63650A381FF85F960065405F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		637A1ACE202043C70013C247 /* Build configuration list for PBXNativeTarget "UInt256Tests macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				637A1ACC202043C70013C247 /* Debug */,
+				637A1ACD202043C70013C247 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
