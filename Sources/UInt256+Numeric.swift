@@ -2,6 +2,9 @@
 
 import Foundation
 
+// MARK: - Conforming to Numeric protocol
+// details on Numeric protocol:
+// https://developer.apple.com/documentation/swift/numeric
 extension UInt256: Numeric {
 
     static func add(_ lhs: UInt256, _ rhs: UInt256) -> (UInt256, Bool) {

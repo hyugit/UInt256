@@ -2,6 +2,9 @@
 
 import Foundation
 
+// MARK: - implementation of karatsuba multiplication
+// more details here: https://members.loria.fr/PZimmermann/mca/mca-cup-0.5.9.pdf
+//
 extension UInt256 {
     private typealias SplitResult = (
         aH: UInt256,
@@ -11,6 +14,17 @@ extension UInt256 {
         N2: Int
     )
 
+    /// Karatsuba multiplication of two equal length unsigned integers
+    /// karatsuba algorithm is the divide and conquer algorithm for
+    /// multiplications.
+    /// it reduces a multiplication of length n to 3 multiplications
+    /// of length n/2, plus some other operations (-, <<, +).
+    /// the result is double of length of the operands at most
+    ///
+    /// - Parameters:
+    ///   - lhs: first operand of the multiplication
+    ///   - rhs: second operand of the multiplication
+    /// - Returns: (high, low), the full width result of the multiplication
     public static func karatsuba(_ lhs: UInt256, _ rhs: UInt256) -> (high: UInt256, low: UInt256) {
 
         guard lhs > 0 && rhs > 0 else {

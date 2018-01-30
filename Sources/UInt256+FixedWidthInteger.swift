@@ -15,6 +15,13 @@ extension UInt256: FixedWidthInteger {
         self.init(bigEndian.parts)
     }
 
+    /// initializer from a little endian representation of the number
+    /// since swift's native unsigned integers use little endian,
+    /// and UInt256 here use big endian, we need to reverse the bytes
+    /// so that the little endian representation correctly reflects
+    /// the reverse order of bytes
+    ///
+    /// - Parameter littleEndian: UInt256, little endian representation
     public init(littleEndian: UInt256) {
         let newParts = littleEndian.parts.reversed().map { $0.bigEndian }
         self.init(newParts)
