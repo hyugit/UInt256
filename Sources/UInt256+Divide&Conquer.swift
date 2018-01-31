@@ -4,6 +4,14 @@ import Foundation
 
 extension UInt256 {
 
+    /// Divide and conquer algorithm for division
+    /// Top level algo. It uses two subroutines:
+    /// divideAndConquer2By1 and divideAndConquer3By2
+    ///
+    /// - Parameters:
+    ///   - dividend: (high: UInt256, low: UInt256)
+    ///   - divisor: UInt256
+    /// - Returns: (quotient: UInt256, remainder: UInt256)
     static func divideAndConquer(_ dividend: (high: UInt256, low: UInt256), by divisor: UInt256) -> (quotient: UInt256, remainder: UInt256) {
         var (hi, lo) = dividend
         guard hi > 0 else {
@@ -17,6 +25,16 @@ extension UInt256 {
         return divideAndConquer2By1((hi, lo), by: divisor)
     }
 
+    /// Divide And Conquer 2 By 1
+    /// this algorithm is in charge of handling 2-by-1 scenarios.
+    /// the algorithm divide the high and low components into two
+    /// 3-by-2 divisions and pass them over to 3-by-2 algorithm
+    /// to calculate
+    ///
+    /// - Parameters:
+    ///   - dividend: (high: UInt256, low: UInt256)
+    ///   - divisor: UInt256
+    /// - Returns: (quotient: UInt256, remainder: UInt256)
     static func divideAndConquer2By1(_ dividend: (high: UInt256, low: UInt256), by divisor: UInt256) -> (quotient: UInt256, remainder: UInt256) {
         let (hi, lo) = dividend
 
@@ -36,6 +54,15 @@ extension UInt256 {
         return (quotient, remainder)
     }
 
+    /// Divide And Conquer 3 By 2
+    /// This algorithm takes a 3-by-2 division and calculates the results
+    /// 3-by-2 here means it's 384-by-256, i.e. 128 most significant bits
+    /// of dividend.high are zeros (dividend.high.leadingZeroCount >= 128)
+    ///
+    /// - Parameters:
+    ///   - dividend: (high: UInt256, low: UInt256)
+    ///   - divisor: UInt256
+    /// - Returns: (quotient: UInt256, remainder: UInt256)
     static func divideAndConquer3By2(_ dividend: (high: UInt256, low: UInt256), by divisor: UInt256) -> (quotient: UInt256, remainder: UInt256) {
         let (hi, lo) = dividend
 
