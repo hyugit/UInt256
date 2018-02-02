@@ -379,4 +379,41 @@ class UInt256ArithmeticTests: XCTestCase {
         XCTAssertEqual(a % a, 0)
         XCTAssertEqual(b % a, b)
     }
+
+    func testLongDivision() {
+        var sum = 0
+        for _ in 0..<1000 {
+            let a = Int(arc4random() & 0xfe) + 1
+            var b = [UInt8]()
+            for _ in 0..<a {
+                b.append(UInt8(truncatingIfNeeded: arc4random()))
+            }
+            while b[0] == 0 && b.count > 1 {
+                b.remove(at: 0)
+            }
+            let c = UInt8(truncatingIfNeeded: arc4random() & 0xfe + 1)
+            let (q, r) = c.dividingLong(dividend: b)
+            var result = c.multiplyingLong(multiplier: q)
+            var overflow = false
+            var i: Int = result.count - 1
+            (result[i], overflow) = result[i].addingReportingOverflow(r)
+
+            while overflow && i > 0 {
+                i = i - 1
+                (result[i], overflow) = result[i].addingReportingOverflow(1)
+            }
+            var str0: String = ""
+            var str1: String = ""
+            let combo = zip(b, result)
+            for (val, res) in combo {
+                str0 = str0.appendingFormat("%0.2x", res)
+                str1 = str1.appendingFormat("%0.2x", val)
+            }
+            for (val, res) in combo {
+                XCTAssertEqual(val, res, "\(str0) != \(str1) (\(str1) / \(c))")
+            }
+            sum += a
+        }
+        print("testLongDivision executed \(sum) multiplications AND divisions")
+    }
 }
