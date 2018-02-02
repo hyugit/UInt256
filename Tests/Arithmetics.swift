@@ -393,12 +393,12 @@ class UInt256ArithmeticTests: XCTestCase {
             }
             let c = UInt8(truncatingIfNeeded: arc4random() & 0xfe + 1)
             let (q, r) = c.dividingLong(dividend: b)
-            var result = c.multipliedLong(by: q)
+            var result = c.multiplyingLong(multiplier: q)
             var overflow = false
             var i: Int = result.count - 1
             (result[i], overflow) = result[i].addingReportingOverflow(r)
 
-            while overflow {
+            while overflow && i > 0 {
                 i = i - 1
                 (result[i], overflow) = result[i].addingReportingOverflow(1)
             }
@@ -410,10 +410,10 @@ class UInt256ArithmeticTests: XCTestCase {
                 str1 = str1.appendingFormat("%0.2x", val)
             }
             for (val, res) in combo {
-                XCTAssertEqual(val, res, "\(str0) != \(str1)")
+                XCTAssertEqual(val, res, "\(str0) != \(str1) (\(str1) / \(c))")
             }
             sum += a
         }
-        print("executed \(sum) multiplications AND divisions")
+        print("testLongDivision executed \(sum) multiplications AND divisions")
     }
 }

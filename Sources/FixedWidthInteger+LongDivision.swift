@@ -8,11 +8,9 @@ extension FixedWidthInteger {
             return ([], 0)
         }
 
+        // simplify logic when length is limited
         if dividend.count == 1 {
             return ([dividend[0] / self], dividend[0] % self)
-        } else if dividend.count == 2 {
-            let (q, r) = self.dividingFullWidth((high: dividend[0], low: dividend[1].magnitude))
-            return ([q], r)
         }
 
         var result = [Self]()
@@ -23,6 +21,7 @@ extension FixedWidthInteger {
             result.append(quotient)
         }
 
+        // remove the leading zeros, but leave one if last one
         while result[0] == 0 && result.count > 1 {
             result.remove(at: 0)
         }
@@ -30,10 +29,21 @@ extension FixedWidthInteger {
         return (result, remainder)
     }
 
-    public func multipliedLong(by multiplier: [Self]) -> [Self] {
+    public func multiplyingLong(multiplier: [Self]) -> [Self] {
         guard multiplier.count > 0 else {
             return []
         }
+
+        // simplify logic when length is limited
+        if multiplier.count == 1 {
+            let (h, l) = self.multipliedFullWidth(by: multiplier[0])
+            var result: [Self] = [l as! Self]
+            if h > 0 {
+                result.insert(h, at: 0)
+            }
+            return result
+        }
+
         var result: [Self] = [0]
         for element in multiplier.reversed() {
             let multiplied = self.multipliedFullWidth(by: element)
@@ -47,6 +57,7 @@ extension FixedWidthInteger {
             (result[0], _) = result[0].addingReportingOverflow(multiplied.high)
         }
 
+        // remove the leading zeros, but leave one if last one
         while result[0] == 0 && result.count > 1 {
             result.remove(at: 0)
         }
