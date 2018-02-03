@@ -2,41 +2,17 @@
 
 import Foundation
 
-public protocol FixedWidthIntegerWithBarrettDivision: FixedWidthInteger {
-    func dividingFullWidth(
-        _ dividend: (high: Self, low: Self.Magnitude),
-        withPrecomputedInverse: (high: Self, low: Self)
-        )
-        -> (quotient: Self, remainder: Self)
-}
-
-extension FixedWidthIntegerWithBarrettDivision {
-    public func dividingFullWidth(
-        _ dividend: (high: Self, low: Self.Magnitude),
-        withPrecomputedInverse: (high: Self, low: Self)
-        )
-        -> (quotient: Self, remainder: Self)
-    {
-        return self.dividingFullWidth(dividend)
-    }
-}
-
-extension UInt8: FixedWidthIntegerWithBarrettDivision {}
-extension UInt16: FixedWidthIntegerWithBarrettDivision {}
-extension UInt32: FixedWidthIntegerWithBarrettDivision {}
-extension UInt64: FixedWidthIntegerWithBarrettDivision {}
-
-extension UInt256: FixedWidthIntegerWithBarrettDivision {
+extension FixedWidthInteger {
 
     public func dividingFullWidth(
-        _ dividend: (high: UInt256, low: UInt256.Magnitude),
-        withPrecomputedInverse inv: (high: UInt256, low: UInt256)
+        _ dividend: (high: Self, low: Self.Magnitude),
+        withPrecomputedInverse inv: (high: Self, low: Self)
         )
-        -> (quotient: UInt256, remainder: UInt256)
+        -> (quotient: Self, remainder: Self)
     {
         // the divisor needs to be `normalized` before applying divide and conquer algo
         let count = self.leadingZeroBitCount
-        let (q1, r1) = UInt256.barrettDivision(
+        let (q1, r1) = Self.barrettDivision(
             of: dividend,
             by: (self << count),
             withPrecomputedInverse: (
@@ -44,26 +20,29 @@ extension UInt256: FixedWidthIntegerWithBarrettDivision {
                 low: ((inv.low >> count) | (inv.high << (inv.high.bitWidth - count)))
             )
         )
-        let (q0, r0) = UInt256.divisionWithRemainder(r1, self)
+        let (q0, _) = r1.dividedReportingOverflow(by: self)
         let quotient = q1 << count + q0
+        let (r0, _) = r1.remainderReportingOverflow(dividingBy: self)
         return (quotient, r0)
     }
 
     static func barrettDivision(
-        of dividend: (high: UInt256, low: UInt256),
-        by divisor: UInt256,
-        withPrecomputedInverse inv: (high: UInt256, low: UInt256)
+        of dividend: (high: Self, low: Self.Magnitude),
+        by divisor: Self,
+        withPrecomputedInverse inv: (high: Self, low: Self)
         )
-        -> (quotient: UInt256, remainder: UInt256)
+        -> (quotient: Self, remainder: Self)
     {
-        let q1 = dividend.high
+        let q1 = dividend.high // ...multiplied by inv.high which == 1
         let q0 = dividend.high.multipliedFullWidth(by: inv.low)
         let q = q1.addingReportingOverflow(q0.high)
         var qb = q.partialValue.multipliedFullWidth(by: divisor)
         if q.overflow {
             qb.high = qb.high + divisor
         }
-        var rL = dividend.low.subtractingReportingOverflow(qb.low)
+
+        let lo: Self = dividend.low as! Self
+        var rL = lo.subtractingReportingOverflow(qb.low as! Self)
         var rH = dividend.high.subtractingReportingOverflow(qb.high)
         if rL.overflow {
             rH.partialValue = rH.partialValue - 1
