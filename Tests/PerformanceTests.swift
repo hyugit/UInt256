@@ -62,4 +62,39 @@ class PerformanceTests: XCTestCase {
             }
         }
     }
+
+    func testBarrettDivisionPerf64() {
+        self.measure {
+            for _ in 0..<1000 {
+                let hi = arc4random64()
+                let lo = arc4random64()
+                let a = arc4random64()
+                let invH = UInt64.max / a
+                let rH = UInt64.max % a
+                var (invL, rL) = a.dividingFullWidth((high: rH, low: UInt64.max))
+                if rL == a - 1 {
+                    invL = invL + 1
+                }
+                let _ = a.dividingFullWidth((hi, lo), withPrecomputedInverse: (invH, invL))
+            }
+        }
+    }
+
+    // for comparison with above test
+    func testNativeDivisionPerf64() {
+        self.measure {
+            for _ in 0..<1000 {
+                let hi = arc4random64()
+                let lo = arc4random64()
+                let a = arc4random64()
+                let invH = UInt64.max / a
+                let rH = UInt64.max % a
+                var (invL, rL) = a.dividingFullWidth((high: rH, low: UInt64.max))
+                if rL == a - 1 {
+                    invL = invL + 1
+                }
+                let _ = a.dividingFullWidth((hi, lo))
+            }
+        }
+    }
 }

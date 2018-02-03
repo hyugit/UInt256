@@ -16,6 +16,16 @@
 					<string>Local Baseline</string>
 				</dict>
 			</dict>
+			<key>testBarrettDivisionPerf64()</key>
+			<dict>
+				<key>com.apple.XCTPerformanceMetric_WallClockTime</key>
+				<dict>
+					<key>baselineAverage</key>
+					<real>0.00166</real>
+					<key>baselineIntegrationDisplayName</key>
+					<string>Feb 2, 2018, 11:03:09 PM</string>
+				</dict>
+			</dict>
 			<key>testDivisionPerformace()</key>
 			<dict>
 				<key>com.apple.XCTPerformanceMetric_WallClockTime</key>
@@ -64,6 +74,16 @@
 					<real>0.046784</real>
 					<key>baselineIntegrationDisplayName</key>
 					<string>Jan 19, 2018, 9:27:24 AM</string>
+				</dict>
+			</dict>
+			<key>testNativeDivisionPerf64()</key>
+			<dict>
+				<key>com.apple.XCTPerformanceMetric_WallClockTime</key>
+				<dict>
+					<key>baselineAverage</key>
+					<real>0.0010631</real>
+					<key>baselineIntegrationDisplayName</key>
+					<string>Local Baseline</string>
 				</dict>
 			</dict>
 			<key>testPerformanceExample()</key>
