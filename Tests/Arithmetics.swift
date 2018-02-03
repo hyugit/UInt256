@@ -373,6 +373,24 @@ class UInt256ArithmeticTests: XCTestCase {
         XCTAssertEqual(quotient, UInt256([0, 0, 0x8000000000000000, 0]))
     }
 
+    func testBarrettDivision64() {
+        for _ in 0..<100 {
+            let hi = arc4random64()
+            let lo = arc4random64()
+            let a = arc4random64()
+            let invH = UInt64.max / a
+            let rH = UInt64.max % a
+            var (invL, rL) = a.dividingFullWidth((high: rH, low: UInt64.max))
+            if rL == a - 1 {
+                invL = invL + 1
+            }
+            let (q, r) = a.dividingFullWidth((hi, lo), withPrecomputedInverse: (invH, invL))
+            let (q_, r_) = a.dividingFullWidth((hi, lo))
+            XCTAssertEqual(q_, q)
+            XCTAssertEqual(r_, r)
+        }
+    }
+
     func testBigIntModulo() {
         let a = UInt256([0xFFFFFFFFFFFFFFFF, 0xFFFFFFFFFFFFFFFF, 0xFFFFFFFFFFFFFFFF, 0xFFFFFFFEFFFFFC2F])
         let b = UInt256([0xFFFFFFFFFFFFFFFF, 0xFFFFFFFFFFFFFFFF, 0xFFFFFFFFFFFFFFFF, 0xFFFFFFFEFFFFFC2D])

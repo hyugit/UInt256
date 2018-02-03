@@ -33,8 +33,8 @@
 		63650A421FF85FE90065405F /* UInt256.h in Headers */ = {isa = PBXBuildFile; fileRef = 636509E41FF859640065405F /* UInt256.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		636EA8E220131E07006A60DA /* UInt256+Divide&Conquer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636EA8E120131E07006A60DA /* UInt256+Divide&Conquer.swift */; };
 		636EA8E320131E07006A60DA /* UInt256+Divide&Conquer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636EA8E120131E07006A60DA /* UInt256+Divide&Conquer.swift */; };
-		636F8BF7201656B800F37750 /* UInt256+BarrettDivision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636F8BF6201656B800F37750 /* UInt256+BarrettDivision.swift */; };
-		636F8BF8201656B800F37750 /* UInt256+BarrettDivision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636F8BF6201656B800F37750 /* UInt256+BarrettDivision.swift */; };
+		636F8BF7201656B800F37750 /* FixedWidthInteger+BarrettDivision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636F8BF6201656B800F37750 /* FixedWidthInteger+BarrettDivision.swift */; };
+		636F8BF8201656B800F37750 /* FixedWidthInteger+BarrettDivision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636F8BF6201656B800F37750 /* FixedWidthInteger+BarrettDivision.swift */; };
 		637A1AC9202043C70013C247 /* UInt256.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63650A311FF85F960065405F /* UInt256.framework */; };
 		637A1ACF2020445C0013C247 /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63123F5B2012602D00E3B19C /* PerformanceTests.swift */; };
 		638DCAD3200D9EC00041C75A /* UInt256+arc4random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638DCAD2200D9EC00041C75A /* UInt256+arc4random.swift */; };
@@ -87,7 +87,7 @@
 		636509E51FF859640065405F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63650A311FF85F960065405F /* UInt256.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UInt256.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		636EA8E120131E07006A60DA /* UInt256+Divide&Conquer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt256+Divide&Conquer.swift"; sourceTree = "<group>"; };
-		636F8BF6201656B800F37750 /* UInt256+BarrettDivision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt256+BarrettDivision.swift"; sourceTree = "<group>"; };
+		636F8BF6201656B800F37750 /* FixedWidthInteger+BarrettDivision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FixedWidthInteger+BarrettDivision.swift"; sourceTree = "<group>"; };
 		637A1AC4202043C70013C247 /* UInt256Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UInt256Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		638DCAD2200D9EC00041C75A /* UInt256+arc4random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt256+arc4random.swift"; sourceTree = "<group>"; };
 		63C63F781FF9E2F00096F3CD /* UInt256Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = UInt256Playground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -149,7 +149,7 @@
 				63E9AE6C200014870009BE90 /* UInt256+Karatsuba.swift */,
 				636EA8E120131E07006A60DA /* UInt256+Divide&Conquer.swift */,
 				638DCAD2200D9EC00041C75A /* UInt256+arc4random.swift */,
-				636F8BF6201656B800F37750 /* UInt256+BarrettDivision.swift */,
+				636F8BF6201656B800F37750 /* FixedWidthInteger+BarrettDivision.swift */,
 				63CA4A0520238A2300B52AF4 /* FixedWidthInteger+LongDivision.swift */,
 			);
 			path = Sources;
@@ -389,7 +389,7 @@
 				63650A001FF85AF80065405F /* UInt256+Numeric.swift in Sources */,
 				636509FF1FF85AF80065405F /* UInt256+Hashable.swift in Sources */,
 				63CA4A0620238A2300B52AF4 /* FixedWidthInteger+LongDivision.swift in Sources */,
-				636F8BF7201656B800F37750 /* UInt256+BarrettDivision.swift in Sources */,
+				636F8BF7201656B800F37750 /* FixedWidthInteger+BarrettDivision.swift in Sources */,
 				638DCAD3200D9EC00041C75A /* UInt256+arc4random.swift in Sources */,
 				636509FE1FF85AF80065405F /* UInt256+CustomStringConvertible.swift in Sources */,
 				636509FD1FF85AF80065405F /* UInt256+UnsignedInteger.swift in Sources */,
@@ -411,7 +411,7 @@
 				63650A401FF85FE50065405F /* UInt256+Numeric.swift in Sources */,
 				63650A3F1FF85FE50065405F /* UInt256+Hashable.swift in Sources */,
 				63CA4A0720238A2300B52AF4 /* FixedWidthInteger+LongDivision.swift in Sources */,
-				636F8BF8201656B800F37750 /* UInt256+BarrettDivision.swift in Sources */,
+				636F8BF8201656B800F37750 /* FixedWidthInteger+BarrettDivision.swift in Sources */,
 				638DCAD4200D9EC00041C75A /* UInt256+arc4random.swift in Sources */,
 				63650A3E1FF85FE50065405F /* UInt256+CustomStringConvertible.swift in Sources */,
 				63650A3D1FF85FE50065405F /* UInt256+UnsignedInteger.swift in Sources */,
