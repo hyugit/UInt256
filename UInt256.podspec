@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'UInt256'
-  s.version = '0.1.0'
+  s.version = '0.2.2'
   s.license = 'MIT'
   s.summary = 'UInt256 library written in Swift 4'
   s.homepage = 'https://github.com/mryu87/UInt256'
