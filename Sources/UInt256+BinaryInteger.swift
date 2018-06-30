@@ -22,6 +22,10 @@ extension UInt256: BinaryInteger {
     public static var bitWidth: Int {
         return 256
     }
+
+    public var bitWidth: Int {
+        return UInt256.bitWidth
+    }
     
     public var trailingZeroBitCount: Int {
         var result: Int = 0
