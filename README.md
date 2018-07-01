@@ -1,8 +1,8 @@
 # UInt256
 
-[![Build Status](https://travis-ci.org/hyu2018/UInt256.svg?branch=master)](https://travis-ci.org/hyu2018/UInt256)
+[![Build Status](https://travis-ci.org/hyugit/UInt256.svg?branch=master)](https://travis-ci.org/hyugit/UInt256)
 [![Language](https://img.shields.io/badge/swift-4-orange.svg)](https://swift.org)
-[![Platform](https://img.shields.io/badge/platform-ios%20|%20macos-lightgrey.svg)](https://github.com/hyu2018/UInt256)
+[![Platform](https://img.shields.io/badge/platform-ios%20|%20macos-lightgrey.svg)](https://github.com/hyugit/UInt256)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-green.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![CocoaPods Compatible](https://img.shields.io/badge/CocoaPods-compatible-green.svg?style=flat)](https://cocoapods.org/)
 
