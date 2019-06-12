@@ -46,12 +46,8 @@ extension UInt256: BinaryInteger {
         self.init(withUInt64: UInt64(source))
     }
 
-    public init?<T: BinaryInteger>(exactly source: T) {
-        if let uint64 = UInt64(exactly: source) {
-            self.init(withUInt64: uint64)
-        } else {
-            return nil
-        }
+    public init<T>(_ source: T) where T : BinaryInteger {
+        self.init(withUInt64: UInt64(exactly: source) ?? 0)
     }
     
     public init<T: BinaryInteger>(clamping source: T) {

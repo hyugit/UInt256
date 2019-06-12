@@ -1,7 +1,7 @@
 //
 
 extension UInt256: Hashable {
-    public var hashValue: Int {
-        return toHexString().hashValue
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(self.toHexString().hashValue)
     }
 }
