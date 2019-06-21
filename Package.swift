@@ -10,5 +10,6 @@ let package = Package(
     ],
     targets: [
         .target(name: "UInt256", path: "Sources"),
+        .testTarget(name: "UInt256Tests", dependencies: ["UInt256"], path: "Tests"),
     ]
 )
