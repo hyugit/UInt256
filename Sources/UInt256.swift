@@ -1,7 +1,7 @@
 
 import Foundation
 
-public struct UInt256 {
+public struct UInt256: Sendable {
     var parts: [UInt64]
 
     public init() {
